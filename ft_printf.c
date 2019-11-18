@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/11 18:41:09 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 09:21:22 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,5 @@ int ft_printf (const char *format, ...)
 		{
 			if (format[i] == '%')
 				i += ft_parse(*format + i);
-			else
-				write(1, format[i], 1);
 		}
 }
