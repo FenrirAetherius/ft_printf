@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <locale.h>
 #include <string.h>
+#include <stdlib.h>
+#include <wchar.h>
 
 int main ()
 {
 	int *n;
+
+	n = malloc(sizeof(int));
 
 	printf("test '.f at the same time:\n\n");
 
@@ -24,21 +28,30 @@ int main ()
 
 	printf("\ntest %% without arg :\n\n");
 
-	printf("ha ha");
-	printf(" %dd ");
-	printf("ha ha\n");
+	printf("_ %dd _\n");
 	printf("\n\ntest \"%% w\":\n\n");
-	printf("ha ha");
-	printf(" % w ");
-	printf("ha ha\n");
+	printf("_ % w _\n");
 
 	printf("\ntest n:\n\n");
 
-	printf("asdgha%ddsg%n sduh", 50, n);
-	printf("%d", *n);
+	printf("\n%d", printf("asdgha%ddsg%n", 50, n));
+	printf("\n%d\n", *n);
 
 	printf("\ntest * :\n\n");
 	printf("%.*f\n\n", 3, 35.765421);
 
-	return (0);
+	printf("\n%d", printf("asdgha%ddsg sduh", 500));
+	printf("\n%s\n", "dfh%");
+
+	setlocale(LC_ALL, "en_US.UTF-8");
+	setlocale(LC_CTYPE, "en_US.UTF-8");
+	wchar_t *str;
+
+	str = malloc(sizeof(wchar_t) * 4);
+	str[0] = 7424;
+	str[1] = 7425;
+	str[2] = 7426;
+	str[3] = 1792;
+	printf("%ls\n", str);
+	return 0;
 }
