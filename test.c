@@ -57,7 +57,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%.7ls%d\n", str, 5);
+	printf("%.0ls%d\n", str, 5);
 /*
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
