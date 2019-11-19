@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 13:39:12 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 14:53:09 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,13 +23,13 @@
 **	flags contains flags in this order : + space # ' l ll h hh - 0 . *
 */
 
-typedef struct	s_conv
+typedef struct	s_printf
 {
 	short		conv;
 	short		flags;
 	char		*format;
 	char		*strdone;
-}				t_conv;
+}				t_printf;
 
 # define	CONVERT	"nfgecspdiuxX%"
 # define	INIT_C	0b0000000000000000
