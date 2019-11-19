@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 17:38:41 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 17:53:14 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -148,16 +148,16 @@ int main(void)
 	if (pre >= new_size)
 		write(1, new, new_size);
 	else if (((((new[pre - 1] >> 4) & 0x08) == 0b00000) && pre >= 1) ||
-	((((new[pre - 2] >> 4) & 0x0e) == 0b01100) && pre >= 2) ||
-	((((new[pre - 3] >> 4) & 0x0f) == 0b01110) && pre >= 3) ||
-	((((new[pre - 4] >> 3) & 0x01f) == 0b011110) && pre >= 4))
+			((((new[pre - 2] >> 4) & 0x0e) == 0b01100) && pre >= 2) ||
+			((((new[pre - 3] >> 4) & 0x0f) == 0b01110) && pre >= 3) ||
+			((((new[pre - 4] >> 3) & 0x01f) == 0b011110) && pre >= 4))
 		write(1, new, pre);
 	else if (((((new[pre - 1] >> 4) & 0x0e) == 0b01100) ||
-	(((new[pre - 1] >> 4) & 0x0f) == 0b01110) ||
-	(((new[pre - 1] >> 3) & 0x01f) == 0b011110)) && pre >= 1)
+			(((new[pre - 1] >> 4) & 0x0f) == 0b01110) ||
+			(((new[pre - 1] >> 3) & 0x01f) == 0b011110)) && pre >= 1)
 		write(1, new, (pre - 1));
 	else if (((((new[pre - 2] >> 4) & 0x0f) == 0b01110) ||
-	(((new[pre - 2] >> 3) & 0x01f) == 0b011110)) && pre >= 2)
+			(((new[pre - 2] >> 3) & 0x01f) == 0b011110)) && pre >= 2)
 		write(1, new, (pre - 2));
 	else if ((((new[pre - 3] >> 3) & 0x01f) == 0b011110) && pre >= 3)
 		write(1, new, (pre - 3));
