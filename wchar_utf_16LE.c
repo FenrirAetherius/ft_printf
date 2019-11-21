@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/21 12:51:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 15:13:40 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/21 15:41:00 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ static char *four_char(wchar_t origin)
 	if (!(new = malloc(sizeof(char) * 5)))
 		return (NULL);
     origin = origin - 0x10000;
-	new[3] = (char)((((origin & 0x03ff) + 0x0dc00) >> 8) & 0x0ff00);
+	new[3] = (char)((((origin & 0x03ff) + 0x0dc00) >> 8) & 0x0ff);
 	new[2] = (char)(((origin & 0x03ff) + 0x0dc00) & 0x0ff);
 	new[1] = (char)(((((origin >> 10) & 0x3ff) + 0xd800) >> 8) & 0xff);
 	new[0] = (char)((((origin >> 10) & 0x3ff) + 0xd800) & 0xff);
