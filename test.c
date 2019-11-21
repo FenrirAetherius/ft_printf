@@ -23,7 +23,7 @@ int main ()
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
 
-	setlocale(LC_NUMERIC, "POSIX");
+	setlocale(LC_ALL, "");
 	printf("asgh% '.2f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
@@ -32,7 +32,7 @@ int main ()
 
 	printf("_ %dd _\n");
 	printf("\n\ntest \"%% w\":\n\n");
-	printf("_ % w _\n");
+	printf("_ %3. w _\n");
 
 	printf("\ntest n:\n\n");
 
@@ -45,8 +45,9 @@ int main ()
 	printf("\n%d", printf("asdgha%ddsg sduh", 500));
 	printf("\n%s\n", "dfh%");
 
-	setlocale(LC_ALL, "en_US.UTF-8");
-	setlocale(LC_CTYPE, "en_US.UTF-8");
+//	setlocale(LC_ALL, "en_US.UTF-8");
+//	setlocale(LC_CTYPE, "UTF-8");
+	//printf("%s", setlocale(LC_CTYPE, "")); to check local UTF or non UTF
 	wchar_t *str;
 
 	if(!(str = malloc(sizeof(wchar_t) * 6)))
@@ -57,7 +58,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%.0ls%d\n", str, 5);
+	printf("%ls%d\n", str, 5);
 /*
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
@@ -90,5 +91,6 @@ int main ()
 	printf("\n%#x\n", 'a');
 
 	write(1, "\u1d00\u1d01\u1d02\u0700\n", 13);*/
+	//printf("%x", -1);
 	return 0;
 }

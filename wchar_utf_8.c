@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   large_char.c                                     .::    .:/ .      .::   */
+/*   wchar_utf_8.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 17:53:14 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/21 14:09:02 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,7 +73,7 @@ char	*char_conv(wchar_t origin)
 	else if (origin < 0x110000)
 		return (four_char(origin));
 	else
-		return (NULL);
+		return ("");
 }
 /*
 int main(void)
