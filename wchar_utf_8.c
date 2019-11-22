@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 14:09:02 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/22 14:42:58 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -137,14 +137,21 @@ int main(void)
 	int	pre;
 	size_t new_size;
 	char *new;
+	size_t size_lenght;
 
+	size_lenght = 20;
 	new = malloc(sizeof(char) * 1);
 	new = "";
 	i = 0;
 	while (str[i])
 		new = ft_strjoin(new, char_conv(str[i++]));
-	pre = 7;
+	pre = 99999;
 	new_size = strlen(new);
+	while (new_size < size_lenght)
+	{
+		write(1, " ", 1);
+		size_lenght--;
+	}
 	if (pre >= new_size)
 		write(1, new, new_size);
 	else if (((((new[pre - 1] >> 4) & 0x08) == 0b00000) && pre >= 1) ||

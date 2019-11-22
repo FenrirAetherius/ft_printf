@@ -5,13 +5,67 @@
 #include <wchar.h>
 #include <unistd.h>
 
+/*
+**	attribut need to be completed
+**
+** for s:	attribut			: '-'
+**			precision			: ok
+**			largeur de champ	: ok
+**			length modifier		: l
+**			flags code mask		: 0b0000000010001010
+**
+** for c:	attribut			: '-'
+**			precision			: no
+**			largeur de champ	: ok
+**			length modifier		: l
+**			flags code mask		: 0b0000000010001000
+**
+**	p affiche l'adresse d'un pointer int *n n = 0xblabla affichera 0xblabla
+** for p:	attribut			: '-'
+**			precision			: no
+**			largeur de champ	: ok
+**			length modifier		: (null)
+**			flags code mask		: 0b0000000000001000
+**
+** for d:	attribut			: '-' '0' ' ' '`' '+'
+**			precision			: ok
+**			largeur de champ	: ok
+**			length modifier		: l ll h hh
+**			flags code mask		: 0b0000110111111111
+**
+**	i work as the same as d with printf, the only diff is with scanf
+** for i:	attribut			: '-' '0' ' ' '`' '+'
+**			precision			: ok
+**			largeur de champ	: ok
+**			length modifier		: l ll h hh
+**			flags code mask		: 0b0000110111111111
+**
+** for u:	attribut			: '-' '0' ' ' '`'
+**			precision			: ok
+**			largeur de champ	: ok
+**			length modifier		: l ll h hh
+**			flags code mask		: 0b0000010111111111
+**
+** for x:	attribut			: '-' '0' ' '
+**			precision			: ok
+**			largeur de champ	: ok
+**			length modifier		: l ll h hh
+**			flags code mask		: 0b0000010011111111
+**
+** for n:	attribut			:
+**			precision			: no
+**			largeur de champ	: no
+**			length modifier		: l ll h hh
+**			flags code mask		: 0b0000000011110000
+*/
+
 int main ()
 {
-	int *n;
+	/*char *n;
 
 	if(!(n = malloc(sizeof(int))))
-		return(-1);
-
+		return(-1);*/
+/*
 	printf("test '.f at the same time:\n\n");
 
 
@@ -22,8 +76,8 @@ int main ()
 	printf("asgh% '.2f\n", 32000111.0050);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
-
-	setlocale(LC_ALL, "");
+*/
+	setlocale(LC_ALL, "");/*
 	printf("asgh% '.2f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
@@ -40,10 +94,12 @@ int main ()
 	printf("\n%d\n", *n);
 
 	printf("\ntest * :\n\n");
+	printf("%.*f\n\n", 0, 35.765421);
 	printf("%.*f\n\n", 3, 35.765421);
+	printf("%.*f\n\n", 5, 35.765421);
 
 	printf("\n%d", printf("asdgha%ddsg sduh", 500));
-	printf("\n%s\n", "dfh%");
+	printf("\n%s\n", "dfh%");*/
 
 //	setlocale(LC_ALL, "en_US.UTF-8");
 //	setlocale(LC_CTYPE, "UTF-8");
@@ -58,7 +114,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%ls%d\n", str, 5);
+	printf("%20ls%d\n", str, 5); /*precision not working with C indicator conversion*/
 /*
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
@@ -90,7 +146,21 @@ int main ()
 	printf("\n%#x\n", str2[3]);
 	printf("\n%#x\n", 'a');
 
-	write(1, "\u1d00\u1d01\u1d02\u0700\n", 13);*/
-	//printf("%x", -1);
+	write(1, "\u1d00\u1d01\u1d02\u0700\n", 13);
+	printf("%-20p", "agasfc");*/
+	/*
+	**	test for %%
+	*/
+/*
+	printf("%.3%\n");
+	printf("%3%\n");
+	printf("%003%\n");
+	printf("%ll%\n");
+	
+*/
+	//printf("%hhn", n);
+/*	float z;
+	z = 25.2;
+	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
 	return 0;
 }
