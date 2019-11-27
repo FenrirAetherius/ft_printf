@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 14:40:17 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 09:47:22 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,8 @@ typedef struct	s_printf
 	short		flags;
 	char		*formats;
 	char		*strdone;
-	size_t			size_lenght;
+	size_t		size_lenght;
+	size_t		size_strdone;
 }				t_printf;
 
 # define	CONVERT	"nfgecspdiuxX%"

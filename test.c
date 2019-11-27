@@ -156,7 +156,7 @@ int main ()
 	printf("%3%\n");
 	printf("%003%\n");
 	printf("%ll%\n");
-	
+
 */
 	//printf("%hhn", n);
 /*	float z;
