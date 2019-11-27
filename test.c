@@ -114,7 +114,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%20ls%d\n", str, 5); /*precision not working with C indicator conversion*/
+	printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
 /*
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
@@ -162,5 +162,7 @@ int main ()
 /*	float z;
 	z = 25.2;
 	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
+
+	printf("%+09.6d", 5);
 	return 0;
 }

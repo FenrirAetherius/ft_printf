@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 09:47:22 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 17:17:30 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 # define LIBFTPRINTF_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft.h"
 
 /*
 **	conv contain convert symbol in this order :
@@ -29,11 +30,13 @@ typedef struct	s_printf
 	short		flags;
 	char		*formats;
 	char		*strdone;
-	size_t		size_lenght;
+	int			precision;
+	size_t		size_champ;
 	size_t		size_strdone;
 }				t_printf;
 
-# define	CONVERT	"nfgecspdiuxX%"
+# define	SYMBOL "%Xxuidpscegfn*.0-hl'# +"
+
 # define	INIT_C	0b0000000000000000
 
 # define	PERCENT	0b0000000000000001
@@ -50,7 +53,6 @@ typedef struct	s_printf
 # define	F_MIN	0b0000100000000000
 # define	N_MIN	0b0001000000000000
 
-# define	FLAG	"+ #'lh-0.*"
 # define	INIT_F	0b0000000000000000
 
 # define	STAR	0b0000000000000001
@@ -65,4 +67,8 @@ typedef struct	s_printf
 # define	HASH	0b0000001000000000
 # define	SPACE	0b0000010000000000
 # define	PLUS	0b0000100000000000
+
+
+int	ft_printf (const char *format, ...);
+int	ft_parse(t_printf *wip, int i);
 #endif
