@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:17:30 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 12:15:17 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ typedef struct	s_printf
 	short		flags;
 	char		*formats;
 	char		*strdone;
-	int			precision;
+	size_t		precision;
 	size_t		size_champ;
 	size_t		size_strdone;
 }				t_printf;

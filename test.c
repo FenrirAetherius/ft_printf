@@ -163,6 +163,6 @@ int main ()
 	z = 25.2;
 	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
 
-	printf("%+09.6d", 5);
+	printf("%-10.6d", 5);
 	return 0;
 }

@@ -6,15 +6,18 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:14:56 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 13:58:17 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
-int		len_champ(t_printf *wip, int i)
+static int	len_champ(t_printf *wip, int i)
 {
+	if (wip->formats[i] == '0')
+		wip->flags = wip->flags | ZERO;
 	wip->size_champ = wip->formats[i++] - '0';
 	while (wip->formats[i] >= '0' && wip->formats[i] <= '9')
 	{
@@ -23,17 +26,7 @@ int		len_champ(t_printf *wip, int i)
 	return (i);
 }
 
-void	ft_precision(t_printf *wip, int i)
-{
-	wip->precision = 0;
-	i++;
-	while (wip->formats[i] >= '0' && wip->formats[i] <= '9')
-	{
-		wip->precision = wip->precision * 10 + (wip->formats[i++] - '0');
-	}
-}
-
-void	fill_sym(t_printf *wip, int n)
+static void	fill_sym(t_printf *wip, int n)
 {
 	if (n < 13)
 		wip->conv = 1 << n;
@@ -62,7 +55,7 @@ void	fill_sym(t_printf *wip, int n)
 **	return 1 error
 */
 
-int		check(t_printf *wip, int i)
+static int	check(t_printf *wip, int i)
 {
 	int		n;
 
@@ -75,36 +68,30 @@ int		check(t_printf *wip, int i)
 			return (0);
 		}
 	}
-	if (wip->formats[i] == '.')
-		ft_precision(wip, i);
+	if (wip->formats[i - 1] == '.')
+		wip->precision = ft_atoi(&wip->formats[i]);
 	return (1);
 }
 
-int		ft_parse(t_printf *wip, int i)
+int			ft_parse(t_printf *wip, int i)
 {
-	char *temp_done;
 	char *temp_form;
 
-	temp_done = wip->strdone;
 	temp_form = wip->formats;
 	wip->conv = INIT_C;
 	wip->flags = INIT_F;
 	temp_form[i] = '\0';
-	wip->strdone = ft_strjoin(temp_done, wip->formats);
-	free(temp_done);
-	while (wip->conv == 0 && wip->formats[++i])
+	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
+	while (wip->formats[++i] && wip->conv == 0)
 	{
 		if (wip->formats[i] >= '0' && wip->formats[i] <= '9' &&
 		((wip->flags & POINT) == 0))
 			i = len_champ(wip, i);
 		check(wip, i);
 	}
-	wip->formats = ft_strdup(&temp_form[++i]);
+	wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
-	/*temp_done = wip->strdone;
-	temp_form = ch_conv(wip);
-	wip->strdone = ft_strjoin(temp_done, temp_form);
-	free(temp_form);
-	free(temp_done);*/
+	/*temp_form = ch_conv(wip);
+	wip->strdone = ft_strjoinmod(wip->strdone, temp_form, 3);*/
 	return (0);
 }
