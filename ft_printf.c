@@ -6,18 +6,16 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 13:47:55 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:55:45 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdarg.h>
 #include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
-	va_list		ap;
 	int			i;
 	t_printf	*wip;
 
@@ -25,8 +23,8 @@ int	ft_printf(const char *format, ...)
 		return (0);
 	wip->formats = ft_strdup(format);
 	wip->strdone = ft_strdup("");
+	va_start(wip->ap, format);
 	i = -1;
-	va_start(ap, format);
 	if (wip->formats)
 		while (wip->formats[++i] != '\0')
 		{
@@ -37,6 +35,7 @@ int	ft_printf(const char *format, ...)
 	i = wip->size_strdone;
 	wip->size_strdone = ft_strlen(wip->strdone);
 	write(1, wip->strdone, wip->size_strdone);
+	va_end(wip->ap);
 	/*test
 	printf("\nshort conv :%#.2x\n", wip->conv);
 	printf("short flags :%#.2x\n", wip->flags);

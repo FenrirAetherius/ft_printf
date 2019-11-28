@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_dmin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:56:22 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/28 15:54:44 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
-int main()
+char	*ft_dmin_conv(t_printf *wip)
 {
-	ft_printf("assdsdgbv045.2%dxgc", 15);
-	return (0);
+	return (ft_itoa(va_arg(wip->ap, int)));
 }

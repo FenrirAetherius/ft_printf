@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 12:15:17 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:57:27 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 # define LIBFTPRINTF_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 # include "libft.h"
 
 /*
@@ -26,6 +27,7 @@
 
 typedef struct	s_printf
 {
+	va_list		ap;
 	short		conv;
 	short		flags;
 	char		*formats;
@@ -69,6 +71,10 @@ typedef struct	s_printf
 # define	PLUS	0b0000100000000000
 
 
-int	ft_printf (const char *format, ...);
-int	ft_parse(t_printf *wip, int i);
+int		ft_printf (const char *format, ...);
+int		ft_parse(t_printf *wip, int i);
+char	*ch_conv1(t_printf *wip);
+char	*ft_perc_conv(t_printf *wip);
+char	*ft_dmin_conv(t_printf *wip);
+
 #endif
