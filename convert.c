@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 13:56:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:57:12 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 16:28:18 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,10 +41,8 @@ char	*ch_conv1(t_printf *wip)
 	else if (wip->conv == 4)
 		res = ft_xmin_conv(wip);
 	else if (wip->conv == 8)
-		res = ft_umin_conv(wip);
-	else if (wip->conv == 16)
-		res = ft_imin_conv(wip);*/
-	else if (wip->conv == 32)
+		res = ft_umin_conv(wip);*/
+	else if (wip->conv == 16 || wip->conv == 32)
 		res = ft_dmin_conv(wip);/*
 	else if (wip->conv == 64)
 		res = ft_pmin_conv(wip);
