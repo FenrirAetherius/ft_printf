@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 14:28:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 16:50:29 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,7 +37,7 @@ int main()
 	str2[11] = '\n';
 
 	str2[12] = '\0';
-	str2 = (char *)0xbf402750;
-	ft_printf("assdsdgbv%045.2dxg%X%x%u%u\n%p", 15, 15, -15, 5, 1, str2);
+	ft_printf("as\n%-5s\ndsdgbv%045.2dxg%X%x%u%u\n%p", "hel", 15, 15, -15, 5, 1, str2);
+	free(str2);
 	return (0);
 }
