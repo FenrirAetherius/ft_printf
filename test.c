@@ -115,31 +115,31 @@ int main ()
 	str[4] = '\n';
 	str[5] = 0;
 	printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
-/*
+
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
-		return(-1);*/
+		return(-1);
 	/*\u1d00*/
-/*	str2[0] = 0xe1;
+	str2[0] = 0xe1;
 	str2[1] = 0xb4;
-	str2[2] = 0x80;*/
+	str2[2] = 0x80;
 	/*\u1d01*/
-/*	str2[3] = 0xe1;
+	str2[3] = 0xe1;
 	str2[4] = 0xb4;
-	str2[5] = 0x81;*/
+	str2[5] = 0x81;
 	/*\u1d02*/
-/*	str2[6] = 0xe1;
+	str2[6] = 0xe1;
 	str2[7] = 0xb4;
-	str2[8] = 0x82;*/
+	str2[8] = 0x82;
 	/*\u0700*/
-/*	str2[9] = 0xdc;
+	str2[9] = 0xdc;
 	str2[10] = 0x80;
 
 	str2[11] = '\n';
 
 	str2[12] = '\0';
 
-	write(1, str2, 13);*/
+	write(1, str2, 13);
 	/*printf("\n%#x\n", (char)str2[0]);
 	printf("\n%#x\n", str2[1]);
 	printf("\n%#x\n", str2[2]);
@@ -163,6 +163,8 @@ int main ()
 	z = 25.2;
 	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
 
-	printf("%-10.6d", 5);
+	//printf("%-10.6d", 5);
+	str2 = (char *)0x0f402750;
+	printf("%p\n%#lx", str2, (unsigned long)str2);
 	return 0;
 }

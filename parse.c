@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:30:55 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 15:22:20 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,8 @@ int			ft_parse(t_printf *wip, int i)
 	temp_form = wip->formats;
 	wip->conv = INIT_C;
 	wip->flags = INIT_F;
+	wip->precision = 0;
+	wip->size_champ = 0;
 	temp_form[i] = '\0';
 	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
 	while (wip->formats[++i] && wip->conv == 0)
@@ -92,5 +94,5 @@ int			ft_parse(t_printf *wip, int i)
 	wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
 	wip->strdone = ft_strjoinmod(wip->strdone, ch_conv1(wip), 3);
-	return (0);
+	return (-1);
 }
