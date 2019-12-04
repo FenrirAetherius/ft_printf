@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_xmin_conv.c                                   .::    .:/ .      .::   */
+/*   ft_hash.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 10:46:55 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:22:03 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/02 15:04:18 by mrozniec     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/02 15:30:52 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char	*ft_xmin_conv(t_printf *wip)
+char *ft_hash(char *res, t_printf *wip)
 {
-	char *res;
-
-	res = ft_itoa_base(va_arg(wip->ap, unsigned int), "0123456789abcdef");
-	if ((wip->flags & HASH) == HASH)
-		return (ft_hash(res, wip));
-	return (res);
+	if (wip->conv == X_MIN)
+		return (ft_strjoinmod("0x", res, 2));
+	else/* if (wip->conv == X_MAJ)*/
+		return (ft_strjoinmod("0X", res, 2));
 }
-

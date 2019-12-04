@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 11:12:41 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 13:21:19 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 14:07:44 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,5 +50,27 @@ static char	*ft_utoa(unsigned int n)
 
 char		*ft_umin_conv(t_printf *wip)
 {
-	return (ft_utoa(va_arg(wip->ap, unsigned int)));
+	char *res;
+	char *prec;
+	char *temp;
+	size_t size_res;
+
+	res = ft_utoa(va_arg(wip->ap, unsigned int));
+	size_res = ft_strlen(res);
+	if (((wip->flags & POINT) == POINT) && (size_res < wip->precision))
+	{
+		if(!(prec = calloc(sizeof(char), (wip->precision + 1 - size_res))))
+			return (NULL);
+		prec = ft_memset(prec, '0', (sizeof(char) * (wip->precision - size_res)));
+		res = ft_strjoinmod(prec, res, 3);
+		size_res = wip->precision;
+	}
+	if (size_res >= wip->size_champ)
+		return (res);
+	if(!(temp = ft_calloc(sizeof(char), (wip->size_champ - size_res + 1))))
+		return (NULL);
+	temp = ft_memset(temp, ' ', wip->size_champ - size_res);
+	if ((wip->flags & MINUS) == 0)
+		return (ft_strjoinmod(temp, res, 3));
+	return (ft_strjoinmod(res, temp, 3));
 }

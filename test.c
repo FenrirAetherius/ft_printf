@@ -46,11 +46,11 @@
 **			length modifier		: l ll h hh
 **			flags code mask		: 0b0000010111111111
 **
-** for x:	attribut			: '-' '0' ' '
+** for x:	attribut			: '-' '0' ' ' '#'
 **			precision			: ok
 **			largeur de champ	: ok
 **			length modifier		: l ll h hh
-**			flags code mask		: 0b0000010011111111
+**			flags code mask		: 0b0000011011111111
 **
 ** for n:	attribut			:
 **			precision			: no
@@ -114,7 +114,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
+	//printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
 
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
@@ -139,7 +139,7 @@ int main ()
 
 	str2[12] = '\0';
 
-	write(1, str2, 13);
+	//write(1, str2, 13);
 	/*printf("\n%#x\n", (char)str2[0]);
 	printf("\n%#x\n", str2[1]);
 	printf("\n%#x\n", str2[2]);
@@ -164,7 +164,9 @@ int main ()
 	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
 
 	//printf("%-10.6d", 5);
-	str2 = (char *)0x0f402750;
-	printf("%p\n%#lx", str2, (unsigned long)str2);
+	/*str2 = (char *)0x0f402750;
+	printf("%p\n%#lx", str2, (unsigned long)str2);*/
+	//printf("%10.5s\n", "hel");
+	printf("%6.3u\n", 15);
 	return 0;
 }
