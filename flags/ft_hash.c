@@ -17,6 +17,8 @@ char *ft_hash(char *res, t_printf *wip)
 {
 	if (wip->conv == X_MIN)
 		return (ft_strjoinmod("0x", res, 2));
-	else/* if (wip->conv == X_MAJ)*/
+	else if (wip->conv == X_MAJ)
 		return (ft_strjoinmod("0X", res, 2));
+	else
+		return (res);
 }

@@ -15,19 +15,21 @@
 
 char	*ft_cmin_conv(t_printf *wip)
 {
-	char *res;
-	char *temp;
+	char	*res;
+	char	*temp;
+	size_t	size_data;
 
-	if (!(res = malloc(sizeof(char) * 2)))
-		return (NULL);
-	res[0] = (char)va_arg(wip->ap, int);
-	res[1] = '\0';
-	if (wip->size_champ <= 2)
+	if (wip->flags & L_MIN != 0)
+		res = ft_lflag(wip);
+	else
+	{
+		if (!(res = malloc(sizeof(char) * 2)))
+			return (NULL);
+		res[0] = (char)va_arg(wip->ap, int);
+		res[1] = '\0';
+	}
+	size_data = ft_strlen(res);
+	if (wip->size_champ <= size_data)
 		return (res);
-	if(!(temp = ft_calloc(sizeof(char), (wip->size_champ - 1))))
-		return (NULL);
-	temp = ft_memset(temp, ' ', wip->size_champ - 2);
-	if ((wip->flags & MINUS) == 0)
-		return (ft_strjoinmod(temp, res, 3));
-	return (ft_strjoinmod(res, temp, 3));
+	return(ft_size_champ(res, wip, size_data));
 }

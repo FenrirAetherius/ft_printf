@@ -167,6 +167,7 @@ int main ()
 	/*str2 = (char *)0x0f402750;
 	printf("%p\n%#lx", str2, (unsigned long)str2);*/
 	//printf("%10.5s\n", "hel");
-	printf("%6.3u\n", 15);
+	//printf("%6.3u\n", 15);
+	printf("%x", 65536);
 	return 0;
 }
