@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libftprintf.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:17:51 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 16:16:26 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,6 +83,7 @@ char	*ft_xmaj_conv(t_printf *wip);
 char	*ft_umin_conv(t_printf *wip);
 char	*ft_pmin_conv(t_printf *wip);
 
-char *ft_hash(char *res, t_printf *wip);
+char	*ft_hash(char *res, t_printf *wip);
+char	*ft_char_conv(wchar_t origin);
 
 #endif

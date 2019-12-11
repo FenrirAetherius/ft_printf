@@ -6,7 +6,7 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 14:38:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 23:41:40 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 15:25:12 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,6 +42,9 @@ int				ft_isprint(int c);
 char			*ft_itoa(int n);
 char			*ft_llitoa(long long n);
 char			*ft_itoa_base(unsigned int n, char *base);
+char			*ft_hitoa_base(unsigned short n, char *base);
+char			*ft_hhitoa_base(unsigned char n, char *base);
+char			*ft_litoa_base(unsigned long n, char *base);
 char			*ft_llitoa_base(unsigned long long n, char *base);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
