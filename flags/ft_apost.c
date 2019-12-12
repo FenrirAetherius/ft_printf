@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_pmin_conv.c                                   .::    .:/ .      .::   */
+/*   ft_apost.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 13:36:21 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 02:29:45 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/12 01:32:26 by fenrir       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/12 01:59:40 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char	*ft_pmin_conv(t_printf *wip)
+#include <locale.h>
+
+char *ft_apost(char *res, t_printf *wip)
 {
-	unsigned long res;
-	res = (unsigned long)va_arg(wip->ap, void *);
-	return (ft_litoa_base(res, "0123456789abcdef"));
+	int		i;
+	char	*new;
+	char	*temp;
+
+	i = -1;
+	if (!(new = ft_calloc(sizeof(char), 1)))
+		return (NULL);
+	while (res[++i] >= '0' && res[i] <= '9')
+		i++;
+	while (i > 3)
+	{
+		i -= 3;
+		temp = ft_strjoin(localeconv()->thousands_sep, (res + i));
+		res[i] = '\0';
+		new = ft_strjoinmod(temp, new, 3);
+	}
+	new = ft_strjoinmod(res, new, 3);
+	return (new);
 }

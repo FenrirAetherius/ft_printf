@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <unistd.h>
+#include "libftprintf.h"
 
 /*
 **	attribut need to be completed
@@ -65,23 +66,23 @@ int main ()
 
 	if(!(n = malloc(sizeof(int))))
 		return(-1);*/
-/*
+
 	printf("test '.f at the same time:\n\n");
 
 
-	setlocale(LC_NUMERIC, "");
-	struct lconv *ptrLocale = localeconv();
-	ptrLocale->decimal_point = "v";
-	ptrLocale->thousands_sep = "m";
-	printf("asgh% '.2f\n", 32000111.0050);
-	printf("separator:'%s'\n", localeconv()->thousands_sep);
-	printf("%lu\n", strlen(localeconv()->thousands_sep));
-*/
-	setlocale(LC_ALL, "");/*
-	printf("asgh% '.2f\n", 32000111.00501);
+	printf("%s\n", setlocale(LC_NUMERIC, "fr_FR.UTF-8"));
+	//struct lconv *ptrLocale = localeconv();
+	//ptrLocale->decimal_point = ft_strdup("v");
+	//ptrLocale->thousands_sep = ft_strdup("m");
+	printf("asgh% 'f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
 
+	printf("%s\n", setlocale(LC_ALL, "en_US.UTF-8"));
+	printf("asgh% '.2f\n", 32000111.00501);
+	printf("separator:'%s'\n", localeconv()->thousands_sep);
+	printf("%lu\n", strlen(localeconv()->thousands_sep));
+/*
 	printf("\ntest %% without arg :\n\n");
 
 	printf("_ %dd _\n");
@@ -94,9 +95,10 @@ int main ()
 	printf("\n%d\n", *n);
 
 	printf("\ntest * :\n\n");
-	printf("%.*f\n\n", 0, 35.765421);
-	printf("%.*f\n\n", 3, 35.765421);
-	printf("%.*f\n\n", 5, 35.765421);
+	printf("%*f\n\n", 0, 35.765421);
+	printf("%*f\n\n", 3, 35.765421);
+	printf("%*f\n\n", 5, 35.765421);
+	printf("%*.*s\n\n", 18, 3, "hello");
 
 	printf("\n%d", printf("asdgha%ddsg sduh", 500));
 	printf("\n%s\n", "dfh%");*/
@@ -157,9 +159,9 @@ int main ()
 	printf("%003%\n");
 	printf("%ll%\n");
 
-*/
-	//printf("%hhn", n);
-/*	float z;
+
+	printf("%hhn", n);
+	float z;
 	z = 25.2;
 	printf("%d%d.%d\n", ((int)(z/10)%10), ((int)(z/1)%10), (((int)(z/0.1))%10));*/
 
@@ -168,6 +170,6 @@ int main ()
 	printf("%p\n%#lx", str2, (unsigned long)str2);*/
 	//printf("%10.5s\n", "hel");
 	//printf("%6.3u\n", 15);
-	printf("%x", 65536);
+	//printf("% +-20d", 65536);
 	return 0;
 }

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_pmin_conv.c                                   .::    .:/ .      .::   */
+/*   ft_zero.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/29 13:36:21 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 02:29:45 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 21:31:15 by fenrir       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 21:35:41 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
-char	*ft_pmin_conv(t_printf *wip)
+char	*ft_zero(char *res, t_printf *wip, size_t size_data)
 {
-	unsigned long res;
-	res = (unsigned long)va_arg(wip->ap, void *);
-	return (ft_litoa_base(res, "0123456789abcdef"));
+	char	*temp;
+
+	if(!(temp = ft_calloc(sizeof(char), (wip->size_champ - size_data + 1))))
+		return (NULL);
+	temp = ft_memset(temp, '0', wip->size_champ - size_data);
+	return (ft_strjoinmod(temp, res, 3));
 }

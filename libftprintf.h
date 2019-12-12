@@ -6,7 +6,7 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:16:26 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 02:34:12 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,10 +50,10 @@ typedef struct	s_printf
 # define	P_MIN	0b0000000001000000
 # define	S_MIN	0b0000000010000000
 # define	C_MIN	0b0000000100000000
-# define	E_MIN	0b0000001000000000
-# define	G_MIN	0b0000010000000000
-# define	F_MIN	0b0000100000000000
-# define	N_MIN	0b0001000000000000
+# define	E_MIN	0b0000001000000000 //todo
+# define	G_MIN	0b0000010000000000 //todo
+# define	F_MIN	0b0000100000000000 //todo
+# define	N_MIN	0b0001000000000000 //todo
 
 # define	INIT_F	0b0000000000000000
 

@@ -1,12 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   flags.c                                          .::    .:/ .      .::   */
+/*   ft_plus.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/27 13:58:03 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 13:58:04 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 23:57:20 by fenrir       #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/12 00:00:04 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
+#include "../libftprintf.h"
+
+char *ft_plus(char *res, t_printf *wip)
+{
+	if (res[0] != '-')
+		return (ft_strjoinmod("+", res, 2));
+	return (res);
+}

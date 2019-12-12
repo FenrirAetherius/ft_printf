@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   parse.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 15:22:20 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 21:22:37 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,10 +18,21 @@ static int	len_champ(t_printf *wip, int i)
 {
 	if (wip->formats[i] == '0')
 		wip->flags = wip->flags | ZERO;
-	wip->size_champ = wip->formats[i++] - '0';
-	while (wip->formats[i] >= '0' && wip->formats[i] <= '9')
+	if (wip->formats[i] == '*' ||
+		(wip->formats[i] == '0' && wip->formats[i + 1] == '*'))
 	{
-		wip->size_champ = wip->size_champ * 10 + (wip->formats[i++] - '0');
+		wip->size_champ = va_arg(wip->ap, size_t);
+		if (wip->formats[i] == '0')
+			i++;
+		i++;
+	}
+	else
+	{
+		wip->size_champ = wip->formats[i++] - '0';
+		while (wip->formats[i] >= '0' && wip->formats[i] <= '9')
+		{
+			wip->size_champ = wip->size_champ * 10 + (wip->formats[i++] - '0');
+		}
 	}
 	return (i);
 }
@@ -50,16 +61,13 @@ static void	fill_sym(t_printf *wip, int n)
 		wip->flags = wip->flags | (1 << (n - 11));
 }
 
-/*
-**	return 0 ok
-**	return 1 error
-*/
-
 static int	check(t_printf *wip, int i)
 {
 	int		n;
 
 	n = -1;
+	if (wip->formats[i] == '*')
+		wip->precision = va_arg(wip->ap, size_t);
 	while (SYMBOL[++n])
 	{
 		if (wip->formats[i] == SYMBOL[n])
@@ -86,8 +94,8 @@ int			ft_parse(t_printf *wip, int i)
 	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
 	while (wip->formats[++i] && wip->conv == 0)
 	{
-		if (wip->formats[i] >= '0' && wip->formats[i] <= '9' &&
-		((wip->flags & POINT) == 0))
+		if (((wip->formats[i] >= '0' && wip->formats[i] <= '9') ||
+			wip->formats[i] == '*') && ((wip->flags & POINT) == 0))
 			i = len_champ(wip, i);
 		check(wip, i);
 	}
