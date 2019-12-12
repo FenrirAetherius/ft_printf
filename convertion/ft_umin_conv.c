@@ -3,15 +3,15 @@
 /*                                                              /             */
 /*   ft_umin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 11:12:41 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 14:07:44 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:23:04 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libconv.h"
 
 static int	malsize(unsigned int n)
 {

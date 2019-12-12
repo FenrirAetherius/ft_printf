@@ -70,16 +70,21 @@ int main ()
 	printf("test '.f at the same time:\n\n");
 
 
-	printf("%s\n", setlocale(LC_NUMERIC, "fr_FR.UTF-8"));
+	printf("%s\n", setlocale(LC_NUMERIC, "fr_BE.UTF-8"));
 	//struct lconv *ptrLocale = localeconv();
 	//ptrLocale->decimal_point = ft_strdup("v");
 	//ptrLocale->thousands_sep = ft_strdup("m");
-	printf("asgh% 'f\n", 32000111.00501);
+	printf("% 'f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
 
 	printf("%s\n", setlocale(LC_ALL, "en_US.UTF-8"));
-	printf("asgh% '.2f\n", 32000111.00501);
+	printf("% 'f\n", 32000111.00501);
+	printf("separator:'%s'\n", localeconv()->thousands_sep);
+	printf("%lu\n", strlen(localeconv()->thousands_sep));
+
+	printf("%s\n", setlocale(LC_ALL, ""));
+	printf("% 'f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
 /*

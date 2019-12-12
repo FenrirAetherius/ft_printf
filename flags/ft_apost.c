@@ -6,14 +6,12 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 01:32:26 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 01:59:40 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:39:31 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
-
-#include <locale.h>
+#include "libflag.h"
 
 char *ft_apost(char *res, t_printf *wip)
 {

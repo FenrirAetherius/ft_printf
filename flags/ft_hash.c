@@ -3,15 +3,15 @@
 /*                                                              /             */
 /*   ft_hash.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:18 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:30:52 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:39:21 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libflag.h"
 
 char *ft_hash(char *res, t_printf *wip)
 {

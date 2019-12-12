@@ -3,15 +3,15 @@
 /*                                                              /             */
 /*   ft_size_champ.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:17:59 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:38:24 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libflag.h"
 
 char	*ft_size_champ(char *res, t_printf *wip, size_t size_data)
 {

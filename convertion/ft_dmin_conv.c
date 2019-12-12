@@ -3,15 +3,15 @@
 /*                                                              /             */
 /*   ft_dmin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 14:18:32 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:23:31 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libconv.h"
 
 char	*ft_dmin_conv(t_printf *wip)
 {

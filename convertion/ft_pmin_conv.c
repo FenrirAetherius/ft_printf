@@ -6,12 +6,12 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 13:36:21 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 02:29:45 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:22:27 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libconv.h"
 
 char	*ft_pmin_conv(t_printf *wip)
 {

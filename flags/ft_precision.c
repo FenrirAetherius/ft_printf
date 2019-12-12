@@ -6,12 +6,12 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:03:32 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 13:24:20 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:38:29 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libflag.h"
 
 static size_t ft_cutlstr(char *res, t_printf *wip)
 {

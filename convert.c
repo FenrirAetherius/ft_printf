@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   convert.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 13:56:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 14:26:20 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:26:18 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -54,13 +54,14 @@ char	*ch_conv1(t_printf *wip)
 		res = ch_conv2(wip);*/
 	else
 	{
-		if (!(res = malloc(sizeof(char) * 5)))
+		if (!(res = malloc(sizeof(char) * 6)))
 			return (NULL);
-		res[0] = 'h';
-		res[1] = 'a';
-		res[2] = 'h';
-		res[3] = 'a';
-		res[4] = '\0';
+		res[0] = 'e';
+		res[1] = 'r';
+		res[2] = 'r';
+		res[3] = 'o';
+		res[4] = 'r';
+		res[5] = '\0';
 	}
 
 	return (res);

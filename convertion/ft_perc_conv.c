@@ -3,15 +3,15 @@
 /*                                                              /             */
 /*   ft_perc_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:33:09 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:38:52 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:23:26 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libconv.h"
 
 char	*ft_perc_conv(t_printf *wip)
 {

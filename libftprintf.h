@@ -6,7 +6,7 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 02:34:12 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:33:09 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,16 +74,6 @@ typedef struct	s_printf
 int		ft_printf (const char *format, ...);
 int		ft_parse(t_printf *wip, int i);
 char	*ch_conv1(t_printf *wip);
-char	*ft_perc_conv(t_printf *wip);
-char	*ft_dmin_conv(t_printf *wip);
-char	*ft_cmin_conv(t_printf *wip);
-char	*ft_smin_conv(t_printf *wip);
-char	*ft_xmin_conv(t_printf *wip);
-char	*ft_xmaj_conv(t_printf *wip);
-char	*ft_umin_conv(t_printf *wip);
-char	*ft_pmin_conv(t_printf *wip);
-
-char	*ft_hash(char *res, t_printf *wip);
 char	*ft_char_conv(wchar_t origin);
 
 #endif

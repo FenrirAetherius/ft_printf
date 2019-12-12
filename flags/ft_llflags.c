@@ -6,12 +6,12 @@
 /*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 21:40:39 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:47:25 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 06:38:53 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "libflag.h"
 
 static char	*ft_long_hexa(t_printf *wip)
 {
