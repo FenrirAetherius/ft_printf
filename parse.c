@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 07:44:41 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 09:29:14 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -99,7 +99,11 @@ int			ft_parse(t_printf *wip, int i)
 			i = len_champ(wip, i);
 		check(wip, i);
 	}
-	wip->formats = ft_strdup(&temp_form[i]);
+	if ((ft_strncmp(setlocale(LC_CTYPE, NULL), "UTF-8", 6) != 0) &&
+	(wip->conv == S_MIN || wip->conv == C_MIN) && ((wip->flags & L_MIN) != 0))
+		wip->formats = ft_strdup("");
+	else
+		wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
 	wip->strdone = ft_strjoinmod(wip->strdone, ch_conv1(wip), 3);
 	return (-1);
