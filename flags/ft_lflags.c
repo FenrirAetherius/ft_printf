@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:55:02 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 05:17:07 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 08:23:28 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,7 +43,8 @@ static char	*ft_long_char(t_printf *wip)
 	if (wip->conv == S_MIN)
 	{
 		i = 0;
-		str = va_arg(wip->ap, wchar_t *);
+		if ((str = va_arg(wip->ap, wchar_t *)) == NULL)
+			return (ft_strdup("(null)"));
 		res = ft_char_conv(str[i++]);
 		while (str[i])
 			res = ft_strjoinmod(res, ft_char_conv(str[i++]), 3);

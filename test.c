@@ -183,8 +183,11 @@ int main ()
 	xeno = malloc(sizeof(char));
 	printf("hello%hhn\n", xeno);
 	printf("%hhd\n", *xeno);*/
+	float hey;
+	
+
 	printf("%f\n", 15.51);
-	printf("%g\n", 165831.575611);
+	printf("%g\n", 15.51);
 	printf("%e\n", 15.51);
 	return 0;
 }

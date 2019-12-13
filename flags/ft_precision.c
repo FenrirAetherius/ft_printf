@@ -6,16 +6,16 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:03:32 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 01:12:05 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 07:32:28 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
 
-static size_t	ft_cutlstr(char *res, t_printf *wip)
+static int	ft_cutlstr(char *res, t_printf *wip)
 {
-	size_t preci;
+	int preci;
 
 	preci = wip->precision;
 	if (((((res[preci - 1] >> 4) & 0x0e) == 0b01100) ||
@@ -31,10 +31,10 @@ static size_t	ft_cutlstr(char *res, t_printf *wip)
 		return (preci);
 }
 
-static size_t	ft_prec_smin(char **res, t_printf *wip)
+static int	ft_prec_smin(char **res, t_printf *wip)
 {
 	char	*prec;
-	size_t	newstrl;
+	int		newstrl;
 
 	newstrl = wip->precision;
 	if ((wip->flags & L_MIN) != 0)
@@ -47,7 +47,7 @@ static size_t	ft_prec_smin(char **res, t_printf *wip)
 	return (newstrl);
 }
 
-size_t			ft_precision(char **res, t_printf *wip, size_t size_d)
+int			ft_precision(char **res, t_printf *wip, int size_d)
 {
 	char *temp;
 

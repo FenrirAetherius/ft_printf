@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 06:35:18 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 02:01:01 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 07:35:50 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ char	*ft_hhflag(t_printf *wip);
 char	*ft_lflag(t_printf *wip);
 char	*ft_llflag(t_printf *wip);
 char	*ft_plus(char *res);
-size_t	ft_precision(char **res, t_printf *wip, size_t size_data);
+int 	ft_precision(char **res, t_printf *wip, int size_d);
 char	*ft_size_champ(char *res, t_printf *wip, size_t size_data);
 char	*ft_space(char *res);
 char	*ft_zero(char *res, t_printf *wip, size_t size_data);

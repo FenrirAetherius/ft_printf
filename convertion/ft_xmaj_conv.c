@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 10:48:29 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 00:44:27 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 07:33:16 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 char	*ft_xmaj_conv(t_printf *wip)
 {
 	char	*res;
-	size_t	size_data;
+	int	size_data;
 
 	if ((wip->flags & L_MIN) != 0)
 		res = ft_lflag(wip);

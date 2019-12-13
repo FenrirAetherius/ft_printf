@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   parse.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 21:22:37 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 07:44:41 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,7 +67,7 @@ static int	check(t_printf *wip, int i)
 
 	n = -1;
 	if (wip->formats[i] == '*')
-		wip->precision = va_arg(wip->ap, size_t);
+		wip->precision = va_arg(wip->ap, int);
 	while (SYMBOL[++n])
 	{
 		if (wip->formats[i] == SYMBOL[n])
@@ -76,7 +76,7 @@ static int	check(t_printf *wip, int i)
 			return (0);
 		}
 	}
-	if (wip->formats[i - 1] == '.')
+	if ((wip->formats[i - 1] == '.') && (wip->formats[i] != '*'))
 		wip->precision = ft_atoi(&wip->formats[i]);
 	return (1);
 }
