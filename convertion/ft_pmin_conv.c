@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 13:36:21 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 07:31:03 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 08:36:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@ char	*ft_pmin_conv(t_printf *wip)
 {
 	unsigned long	res;
 	char			*str;
-	int			size_data;
+	int				size_data;
 
 	res = (unsigned long)va_arg(wip->ap, void *);
 	str = ft_litoa_base(res, "0123456789abcdef");

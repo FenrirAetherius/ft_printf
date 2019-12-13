@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:55:02 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 08:23:28 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 08:37:39 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,7 +57,7 @@ static char	*ft_long_char(t_printf *wip)
 static void	ft_long_nconv(t_printf *wip)
 {
 	long	*temp;
-	
+
 	temp = va_arg(wip->ap, long *);
 	*temp = (long)ft_strlen(wip->strdone);
 }
