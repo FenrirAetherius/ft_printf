@@ -6,11 +6,12 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 02:25:54 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 03:02:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libftprintf.h"
 
 int main()
@@ -44,15 +45,26 @@ int main()
 
 	if(!(str = malloc(sizeof(wchar_t) * 6)))
 		return(-1);
-	str[0] = 7424;
+	str[0] = 0x1d00;
 	str[1] = 7425;
 	str[2] = 7426;
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
 
-	ft_printf("as\n%6.10s\ndsdgbv\n%9.10d\nxg\n%#X %#x\n%u\n%u\n%.8ls\n", "hel", 15, 15, -15, 5, 1, str);
-	ft_printf("\n\n%*.*d\n", 10, 5, 9);
+	ft_printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p\n", "hel", 15, 15, -15, 5, 1, "\u1d01\u1d02\u0700\n", str, str);
+	printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p", "hel", 15, 15, -15, 5, 1, "\u1d01\u1d02\u0700\n", str, str);
+	//ft_printf("\n\n%*.*d\n", 10, 5, 9);
 	free(str);
+
+/*
+	ft_printf("%s\n", setlocale(LC_NUMERIC, "en_GB.UTF-8"));
+	struct lconv *ptrLocale = localeconv();
+	ptrLocale->decimal_point = "v";
+	ptrLocale->thousands_sep = " ";
+	ft_printf("% 'd\n", 32000111);
+	ft_printf("separator:'%s'\n", localeconv()->thousands_sep);
+	ft_printf("%lu\n", ft_strlen(localeconv()->thousands_sep));*/
+
 	return (0);
 }

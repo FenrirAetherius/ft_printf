@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 23:48:33 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 02:49:28 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,10 +72,10 @@ char		*ft_char_conv(wchar_t origin)
 		return (one_char(origin));
 	else if (origin < 0x0800)
 		return (two_char(origin));
-	else if (origin < 0x10000)
+	else if (origin < 0x010000)
 		return (three_char(origin));
-	else if (origin < 0x110000)
+	else if (origin < 0x0110000)
 		return (four_char(origin));
 	else
-		return ("");
+		return ((char *)calloc(1, sizeof(char)));
 }

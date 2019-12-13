@@ -122,7 +122,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
+	printf("%20s%12.04d\n", "\u1d00\u1d01\u1d02\u0700\n", 5); /*precision not working with C indicator conversion*/
 
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
