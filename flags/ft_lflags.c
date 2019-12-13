@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_lflags.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:55:02 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 06:38:59 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 23:39:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ static char	*ft_long_char(t_printf *wip)
 	return (res);
 }
 
-char	*ft_lflag(t_printf *wip)
+char		*ft_lflag(t_printf *wip)
 {
 	if (wip->conv == X_MAJ || wip->conv == X_MIN || wip->conv == U_MIN)
 		return (ft_long_hexa(wip));

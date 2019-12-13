@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   ft_plus.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 23:57:20 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 06:38:47 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 01:06:58 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
 
-char *ft_plus(char *res, t_printf *wip)
+char	*ft_plus(char *res)
 {
 	if (res[0] != '-')
 		return (ft_strjoinmod("+", res, 2));

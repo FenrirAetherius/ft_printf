@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   ft_space.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 00:03:16 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 06:38:19 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 01:16:09 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
 
-char *ft_plus(char *res, t_printf *wip)
+char	*ft_space(char *res)
 {
 	return (ft_strjoinmod(" ", res, 2));
 }

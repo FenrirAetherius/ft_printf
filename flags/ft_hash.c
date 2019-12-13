@@ -3,17 +3,17 @@
 /*                                                              /             */
 /*   ft_hash.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:18 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 06:39:21 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 23:38:17 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
 
-char *ft_hash(char *res, t_printf *wip)
+char	*ft_hash(char *res, t_printf *wip)
 {
 	if (wip->conv == X_MIN)
 		return (ft_strjoinmod("0x", res, 2));

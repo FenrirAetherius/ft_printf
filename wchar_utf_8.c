@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   wchar_utf_8.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:17:15 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 23:48:33 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,9 +16,10 @@
 #include <unistd.h>
 #include <string.h>
 
-static char *one_char(wchar_t origin)
+static char	*one_char(wchar_t origin)
 {
 	char *new;
+
 	if (!(new = malloc(sizeof(char) * 2)))
 		return (NULL);
 	new[0] = (char)origin;
@@ -26,9 +27,10 @@ static char *one_char(wchar_t origin)
 	return (new);
 }
 
-static char *two_char(wchar_t origin)
+static char	*two_char(wchar_t origin)
 {
 	char *new;
+
 	if (!(new = malloc(sizeof(char) * 3)))
 		return (NULL);
 	new[1] = 0b10000000 | (char)(origin & 0x03f);
@@ -37,9 +39,10 @@ static char *two_char(wchar_t origin)
 	return (new);
 }
 
-static char *three_char(wchar_t origin)
+static char	*three_char(wchar_t origin)
 {
 	char *new;
+
 	if (!(new = malloc(sizeof(char) * 4)))
 		return (NULL);
 	new[2] = 0b10000000 | (char)(origin & 0x03f);
@@ -49,9 +52,10 @@ static char *three_char(wchar_t origin)
 	return (new);
 }
 
-static char *four_char(wchar_t origin)
+static char	*four_char(wchar_t origin)
 {
 	char *new;
+
 	if (!(new = malloc(sizeof(char) * 5)))
 		return (NULL);
 	new[3] = 0b10000000 | (char)(origin & 0x03f);
@@ -62,7 +66,7 @@ static char *four_char(wchar_t origin)
 	return (new);
 }
 
-char	*ft_char_conv(wchar_t origin)
+char		*ft_char_conv(wchar_t origin)
 {
 	if (origin <= 0x007F)
 		return (one_char(origin));

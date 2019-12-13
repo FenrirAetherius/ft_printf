@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_perc_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:33:09 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 06:23:26 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 23:34:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,5 +21,7 @@ char	*ft_perc_conv(t_printf *wip)
 		return (NULL);
 	res[0] = '%';
 	res[1] = '\0';
-	return (res);
+	if (wip->size_champ <= 2)
+		return (res);
+	return (ft_size_champ(res, wip, 2));
 }

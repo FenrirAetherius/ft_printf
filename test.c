@@ -65,15 +65,15 @@ int main ()
 	/*char *n;
 
 	if(!(n = malloc(sizeof(int))))
-		return(-1);*/
+		return(-1);
 
 	printf("test '.f at the same time:\n\n");
 
 
-	printf("%s\n", setlocale(LC_NUMERIC, "fr_BE.UTF-8"));
-	//struct lconv *ptrLocale = localeconv();
-	//ptrLocale->decimal_point = ft_strdup("v");
-	//ptrLocale->thousands_sep = ft_strdup("m");
+	printf("%s\n", setlocale(LC_NUMERIC, "en_GB.UTF-8"));
+	struct lconv *ptrLocale = localeconv();
+	ptrLocale->decimal_point = "v";
+	ptrLocale->thousands_sep = "m";
 	printf("% 'f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
@@ -83,11 +83,11 @@ int main ()
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
 
-	printf("%s\n", setlocale(LC_ALL, ""));
+	printf("%s\n", setlocale(LC_ALL, "fr_FR.UTF-8"));
 	printf("% 'f\n", 32000111.00501);
 	printf("separator:'%s'\n", localeconv()->thousands_sep);
 	printf("%lu\n", strlen(localeconv()->thousands_sep));
-/*
+
 	printf("\ntest %% without arg :\n\n");
 
 	printf("_ %dd _\n");
@@ -108,9 +108,10 @@ int main ()
 	printf("\n%d", printf("asdgha%ddsg sduh", 500));
 	printf("\n%s\n", "dfh%");*/
 
-//	setlocale(LC_ALL, "en_US.UTF-8");
-//	setlocale(LC_CTYPE, "UTF-8");
-	//printf("%s", setlocale(LC_CTYPE, "")); to check local UTF or non UTF
+	//setlocale(LC_ALL, "");
+	printf("%s\n", setlocale(LC_ALL, "en_US.UTF-8"));
+	//setlocale(LC_CTYPE, "UTF-8");
+	printf("%s\n", setlocale(LC_CTYPE, "")); //to check local UTF or non UTF
 	wchar_t *str;
 
 	if(!(str = malloc(sizeof(wchar_t) * 6)))
@@ -121,7 +122,7 @@ int main ()
 	str[3] = 1792;
 	str[4] = '\n';
 	str[5] = 0;
-	//printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
+	printf("%20ls%12.04d\n", str, 5); /*precision not working with C indicator conversion*/
 
 	char *str2;
 	if(!(str2 = malloc(sizeof(char) * 13)))
@@ -176,5 +177,7 @@ int main ()
 	//printf("%10.5s\n", "hel");
 	//printf("%6.3u\n", 15);
 	//printf("% +-20d", 65536);
+	//printf("a%04d\n", -5);
+	//printf("a%04d\n", 5);
 	return 0;
 }
