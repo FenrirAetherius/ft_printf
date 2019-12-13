@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 21:50:29 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 01:05:57 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 05:17:05 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,11 +34,21 @@ static char	*ft_short_num(t_printf *wip)
 	return (ft_itoa((int)temp));
 }
 
+static void	ft_char_nconv(t_printf *wip)
+{
+	char	*temp;
+	
+	temp = va_arg(wip->ap, char *);
+	*temp = (char)ft_strlen(wip->strdone);
+}
+
 char		*ft_hhflag(t_printf *wip)
 {
 	if (wip->conv == X_MAJ || wip->conv == X_MIN || wip->conv == U_MIN)
 		return (ft_short_hexa(wip));
 	if (wip->conv == I_MIN || wip->conv == D_MIN)
 		return (ft_short_num(wip));
+	if (wip->conv == N_MIN)
+		ft_char_nconv(wip);
 	return ("");
 }

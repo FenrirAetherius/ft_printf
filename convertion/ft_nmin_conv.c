@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libconv.h                                        .::    .:/ .      .::   */
+/*   ft_nmin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/12 02:30:42 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 05:24:36 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/13 04:32:00 by mrozniec     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/13 05:23:13 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef LIBCONV_H
-# define LIBCONV_H
-# include "../libftprintf.h"
-# include "../flags/libflag.h"
+#include "libconv.h"
 
-char	*ft_xmin_conv(t_printf *wip);
-char	*ft_xmaj_conv(t_printf *wip);
-char	*ft_umin_conv(t_printf *wip);
-char	*ft_dmin_conv(t_printf *wip);
-char	*ft_perc_conv(t_printf *wip);
-char	*ft_cmin_conv(t_printf *wip);
-char	*ft_smin_conv(t_printf *wip);
-char	*ft_pmin_conv(t_printf *wip);
-char	*ft_nmin_conv(t_printf *wip);
-#endif
+char	*ft_nmin_conv(t_printf *wip)
+{
+	int		*res;
+	char	*voidstr;
+
+	if (!(voidstr = ft_calloc(1, sizeof(char))))
+		return (NULL);
+	if ((wip->flags & L_MIN) != 0)
+		ft_lflag(wip);
+	else if ((wip->flags & LL_MIN) != 0)
+		ft_llflag(wip);
+	else if ((wip->flags & H_MIN) != 0)
+		ft_hflag(wip);
+	else if ((wip->flags & HH_MIN) != 0)
+		ft_hhflag(wip);
+	else
+	{
+		res = va_arg(wip->ap, int *);
+		*res = ft_strlen(wip->strdone);
+	}
+	return (voidstr);
+}

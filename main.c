@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 03:02:15 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 05:30:29 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,8 +52,8 @@ int main()
 	str[4] = '\n';
 	str[5] = 0;
 
-	ft_printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p\n", "hel", 15, 15, -15, 5, 1, "\u1d01\u1d02\u0700\n", str, str);
-	printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p", "hel", 15, 15, -15, 5, 1, "\u1d01\u1d02\u0700\n", str, str);
+	//ft_printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p\n", "hel", 15, 15, -15, 5, 1, "\u1d00\u1d01\u1d02\u0700\n", str, str);
+	//printf("as%6.10sdsdgbv%9.3dxg%#X %#x%u%u%s%ls%16p", "hel", 15, 15, -15, 5, 1, "\u1d00\u1d01\u1d02\u0700\n", str, str);
 	//ft_printf("\n\n%*.*d\n", 10, 5, 9);
 	free(str);
 
@@ -65,6 +65,9 @@ int main()
 	ft_printf("% 'd\n", 32000111);
 	ft_printf("separator:'%s'\n", localeconv()->thousands_sep);
 	ft_printf("%lu\n", ft_strlen(localeconv()->thousands_sep));*/
-
+	short *xeno;
+	xeno = malloc(sizeof(short));
+	ft_printf("hello%hn\n", xeno);
+	ft_printf("%hd\n", *xeno);
 	return (0);
 }

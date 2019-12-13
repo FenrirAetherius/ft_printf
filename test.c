@@ -62,10 +62,10 @@
 
 int main ()
 {
-	/*char *n;
+	int *n;
 
 	if(!(n = malloc(sizeof(int))))
-		return(-1);
+		return(-1);/*
 
 	printf("test '.f at the same time:\n\n");
 
@@ -93,12 +93,12 @@ int main ()
 	printf("_ %dd _\n");
 	printf("\n\ntest \"%% w\":\n\n");
 	printf("_ %3. w _\n");
-
+*/
 	printf("\ntest n:\n\n");
 
 	printf("\n%d", printf("asdgha%ddsg%n", 50, n));
 	printf("\n%d\n", *n);
-
+/*
 	printf("\ntest * :\n\n");
 	printf("%*f\n\n", 0, 35.765421);
 	printf("%*f\n\n", 3, 35.765421);
@@ -179,5 +179,12 @@ int main ()
 	//printf("% +-20d", 65536);
 	//printf("a%04d\n", -5);
 	//printf("a%04d\n", 5);
+	/*char *xeno;
+	xeno = malloc(sizeof(char));
+	printf("hello%hhn\n", xeno);
+	printf("%hhd\n", *xeno);*/
+	printf("%f\n", 15.51);
+	printf("%g\n", 165831.575611);
+	printf("%e\n", 15.51);
 	return 0;
 }

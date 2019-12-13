@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 02:47:08 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 05:31:23 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,7 +55,7 @@ typedef struct	s_printf
 # define	E_MIN	0b0000001000000000 //todo
 # define	G_MIN	0b0000010000000000 //todo
 # define	F_MIN	0b0000100000000000 //todo
-# define	N_MIN	0b0001000000000000 //todo
+# define	N_MIN	0b0001000000000000
 
 # define	INIT_F	0b0000000000000000
 
