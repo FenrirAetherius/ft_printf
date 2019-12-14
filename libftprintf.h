@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libftprintf.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 07:29:02 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 23:16:29 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,14 +29,15 @@
 
 typedef struct	s_printf
 {
-	va_list		ap;
-	short		conv;
-	short		flags;
-	char		*formats;
-	char		*strdone;
+	va_list	ap;
+	short	conv;
+	short	flags;
+	char	*formats;
+	char	*strdone;
+	char	*strloc;
 	int		precision;
 	int		size_champ;
-	size_t		size_strdone;
+	size_t	size_strdone;
 }				t_printf;
 
 # define	SYMBOL "%Xxuidpscegfn*.0-hl'# +"

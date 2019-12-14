@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   parse.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:29:14 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 01:21:22 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,15 +81,21 @@ static int	check(t_printf *wip, int i)
 	return (1);
 }
 
+static void	ft_init(t_printf *wip)
+{
+	wip->conv = INIT_C;
+	wip->flags = INIT_F;
+	wip->strloc = ft_strdup("");
+	wip->precision = 0;
+	wip->size_champ = 0;
+}
+
 int			ft_parse(t_printf *wip, int i)
 {
 	char *temp_form;
 
 	temp_form = wip->formats;
-	wip->conv = INIT_C;
-	wip->flags = INIT_F;
-	wip->precision = 0;
-	wip->size_champ = 0;
+	ft_init(wip);
 	temp_form[i] = '\0';
 	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
 	while (wip->formats[++i] && wip->conv == 0)
@@ -99,12 +105,12 @@ int			ft_parse(t_printf *wip, int i)
 			i = len_champ(wip, i);
 		check(wip, i);
 	}
-	if ((ft_strncmp(setlocale(LC_CTYPE, NULL), "UTF-8", 6) != 0) &&
-	(wip->conv == S_MIN || wip->conv == C_MIN) && ((wip->flags & L_MIN) != 0))
-		wip->formats = ft_strdup("");
-	else
-		wip->formats = ft_strdup(&temp_form[i]);
+	wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
 	wip->strdone = ft_strjoinmod(wip->strdone, ch_conv1(wip), 3);
+	if ((ft_strnstr(wip->strloc, "UTF-8", ft_strlen(wip->strloc)) == NULL) &&
+	(wip->conv == S_MIN || wip->conv == C_MIN) && ((wip->flags & L_MIN) != 0))
+		wip->formats = ft_strdup("");
+	free(wip->strloc);
 	return (-1);
 }

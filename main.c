@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 09:29:45 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 01:21:40 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@
 
 int main()
 {
-	setlocale(LC_CTYPE, "");
+	setlocale(LC_CTYPE, "C");
 	printf("%s\n", setlocale(LC_CTYPE, NULL));
 	//char *str2;
 	//if(!(str2 = malloc(sizeof(char) * 6)))
@@ -41,7 +41,7 @@ int main()
 	str2[11] = '\n';
 
 	str2[12] = '\0';*/
-	
+
 	wchar_t *str;
 
 	if(!(str = malloc(sizeof(wchar_t) * 6)))

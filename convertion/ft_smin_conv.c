@@ -3,15 +3,17 @@
 /*                                                              /             */
 /*   ft_smin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 09:14:09 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 08:35:54 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 01:17:41 by fenrir      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
+
+#include <stdio.h>
 
 char	*ft_smin_conv(t_printf *wip)
 {
