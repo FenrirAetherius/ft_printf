@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/13 04:32:00 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 05:23:13 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 15:42:32 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,8 @@ char	*ft_nmin_conv(t_printf *wip)
 	else
 	{
 		res = va_arg(wip->ap, int *);
-		*res = ft_strlen(wip->strdone);
+		if (res != NULL)
+			*res = ft_strlen(wip->strdone);
 	}
 	return (voidstr);
 }

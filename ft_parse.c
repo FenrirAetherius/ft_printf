@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   parse.c                                          .::    .:/ .      .::   */
+/*   ft_parse.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 01:21:22 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 16:29:59 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 static int	len_champ(t_printf *wip, int i)
 {
@@ -22,6 +21,11 @@ static int	len_champ(t_printf *wip, int i)
 		(wip->formats[i] == '0' && wip->formats[i + 1] == '*'))
 	{
 		wip->size_champ = va_arg(wip->ap, size_t);
+		if (wip->size_champ < 0)
+		{
+			wip->size_champ = -wip->size_champ;
+			wip->flags = wip->flags | MINUS;
+		}
 		if (wip->formats[i] == '0')
 			i++;
 		i++;
@@ -85,7 +89,7 @@ static void	ft_init(t_printf *wip)
 {
 	wip->conv = INIT_C;
 	wip->flags = INIT_F;
-	wip->strloc = ft_strdup("");
+	wip->strloc = ft_strdup(setlocale(LC_CTYPE, NULL));
 	wip->precision = 0;
 	wip->size_champ = 0;
 }

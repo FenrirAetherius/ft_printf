@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 08:35:21 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 14:39:07 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,7 @@ char	*ft_dmin_conv(t_printf *wip)
 	size_res = ft_strlen(res);
 	if ((wip->flags & APOST) != 0)
 		res = ft_apost(res);
-	if (((wip->flags & POINT) != 0) && (size_res < wip->precision))
+	if ((wip->flags & POINT) != 0)
 		size_res = ft_precision(&res, wip, size_res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
 		res = ft_plus(res);

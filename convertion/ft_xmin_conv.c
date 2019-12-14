@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 10:46:55 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 08:36:24 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 14:52:39 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,11 +29,8 @@ char	*ft_xmin_conv(t_printf *wip)
 	else
 		res = ft_itoa_base(va_arg(wip->ap, unsigned int), "0123456789abcdef");
 	size_data = ft_strlen(res);
-	if (((wip->flags & POINT) != 0) && (size_data < wip->precision))
+	if ((wip->flags & POINT) != 0)
 		size_data = ft_precision(&res, wip, size_data);
-	else if ((wip->flags & ZERO) != 0)
-		res = ft_zero(res, wip, size_data);
-	wip->flags = wip->flags & ~ZERO;
 	if ((wip->flags & HASH) == HASH)
 		res = ft_hash(res, wip);
 	if (wip->size_champ <= size_data)

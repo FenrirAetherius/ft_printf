@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_lflags.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:55:02 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 01:22:17 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 16:23:50 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,7 +40,6 @@ static char	*ft_long_char(t_printf *wip)
 	char	*res;
 	int		i;
 
-	wip->strloc = ft_strjoinmod(setlocale(LC_CTYPE, NULL), wip->strloc, 2);
 	if (!(ft_strnstr(wip->strloc, "UTF-8", ft_strlen(wip->strloc))))
 		return (ft_strdup(""));
 	if (wip->conv == S_MIN)
@@ -62,7 +61,8 @@ static void	ft_long_nconv(t_printf *wip)
 	long	*temp;
 
 	temp = va_arg(wip->ap, long *);
-	*temp = (long)ft_strlen(wip->strdone);
+	if (temp != NULL)
+		*temp = (long)ft_strlen(wip->strdone);
 }
 
 char		*ft_lflag(t_printf *wip)
