@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 16:12:24 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 20:16:56 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@
 int main()
 {
 	setlocale(LC_CTYPE, "");
-	printf("%s\n", setlocale(LC_CTYPE, NULL));
+	//printf("%s\n", setlocale(LC_CTYPE, NULL));
 	//char *str2;
 	//if(!(str2 = malloc(sizeof(char) * 6)))
 		//return(-1);
@@ -77,7 +77,7 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	printf("\n%d\n", ft_printf("%.0ls ", t));
-	printf("\n%d\n", printf("%.0ls ", t));
+	printf("\n%d\n", ft_printf("%+5i", 42));
+	printf("\n%d\n", printf("%+5i", 42));
 	return (0);
 }

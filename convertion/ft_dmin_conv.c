@@ -6,12 +6,13 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 14:39:07 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 19:05:59 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
+#include <stdio.h>
 
 char	*ft_dmin_conv(t_printf *wip)
 {
@@ -35,6 +36,8 @@ char	*ft_dmin_conv(t_printf *wip)
 		size_res = ft_precision(&res, wip, size_res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
 		res = ft_plus(res);
+	if (res[0] == '-')
+		wip->neg = '1';
 	if (size_res >= wip->size_champ)
 		return (res);
 	return (ft_size_champ(res, wip, size_res));

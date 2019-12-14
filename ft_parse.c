@@ -6,12 +6,13 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 16:29:59 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 19:41:02 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 static int	len_champ(t_printf *wip, int i)
 {
@@ -92,6 +93,7 @@ static void	ft_init(t_printf *wip)
 	wip->strloc = ft_strdup(setlocale(LC_CTYPE, NULL));
 	wip->precision = 0;
 	wip->size_champ = 0;
+	wip->neg = '0';
 }
 
 int			ft_parse(t_printf *wip, int i)
@@ -111,7 +113,10 @@ int			ft_parse(t_printf *wip, int i)
 	}
 	wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
-	wip->strdone = ft_strjoinmod(wip->strdone, ch_conv1(wip), 3);
+	temp_form = ch_conv1(wip);
+	if ((wip->flags & SPACE) && (wip->neg == '0'))
+		wip->strdone = ft_strjoinmod(wip->strdone, " ", 1);
+	wip->strdone = ft_strjoinmod(wip->strdone, temp_form, 3);
 	if ((ft_strnstr(wip->strloc, "UTF-8", ft_strlen(wip->strloc)) == NULL) &&
 	(wip->conv == S_MIN || wip->conv == C_MIN) && ((wip->flags & L_MIN) != 0))
 		wip->formats = ft_strdup("");

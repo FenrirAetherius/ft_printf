@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 01:14:51 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 20:22:33 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,11 @@ char	*ft_size_champ(char *res, t_printf *wip, size_t size_data)
 {
 	char	*temp;
 
+	if (((wip->flags & SPACE) && (wip->neg == '1')) || (wip->flags & PLUS))
+		size_data++;
+	if (((wip->flags & HASH) != 0) && (wip->conv == X_MAJ ||
+		wip->conv == X_MIN) && (res[1] == 'x' || res[1] == 'X'))
+		wip->size_champ -= 2;
 	if (((wip->flags & ZERO) != 0) && ((wip->flags & MINUS) == 0) &&
 		((wip->flags & POINT) == 0) && ((wip->flags & PLUS) != 0))
 		return (ft_plus(ft_zero(res, wip, size_data)));
