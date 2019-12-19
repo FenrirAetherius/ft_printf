@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 20:16:56 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 23:14:22 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,7 +77,7 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	printf("\n%d\n", ft_printf("%+5i", 42));
-	printf("\n%d\n", printf("%+5i", 42));
+	printf("\n%d\n", ft_printf("%+.0i", 0));
+	printf("\n%d\n", printf("%+.0i", 0));
 	return (0);
 }

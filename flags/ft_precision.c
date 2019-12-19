@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:03:32 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 19:42:44 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 23:21:57 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,6 +77,7 @@ static int	ft_precnum(char **res, t_printf *wip, int size_d)
 
 int			ft_precision(char **res, t_printf *wip, int size_d)
 {
+	wip->flags = wip->flags & ~ZERO;
 	if (wip->precision == 0 && ((wip->conv == S_MIN) || ((ft_atoi(*res) == 0 &&
 	((wip->conv == D_MIN) || (wip->conv == U_MIN) || (wip->conv == I_MIN))) ||
 	(((wip->conv == X_MAJ) || (wip->conv == X_MIN)) && *res[0] == '0'))))
