@@ -189,8 +189,12 @@ int main ()
 	printf("%g\n", 15.51);
 	printf("%e\n", 15.51);
 
-	printf("%.0f\n", 15.51);
-	printf("%lu\n", sizeof(double));
+	printf("printf(\"%%.*f\n\",\n");
+	printf("%.*f\n", 0, 2.5);
+	printf("%.*f\n", 0, 3.5);
+	printf("printf(\"%%.0f\n\",\n");
+	printf("%.0f\n", 2.5);
+	printf("%.0f\n", 3.5);
 
 	return 0;
 }

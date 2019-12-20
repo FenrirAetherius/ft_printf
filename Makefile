@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+      #
+#    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/14 13:40:43 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/20 16:31:15 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -25,6 +25,7 @@ SRC =	ft_printf.c\
 		convertion/ft_xmin_conv.c\
 		convertion/ft_xmaj_conv.c\
 		convertion/ft_perc_conv.c\
+		convertion/ft_fmin_conv.c\
 		flags/ft_apost.c\
 		flags/ft_hash.c\
 		flags/ft_hflags.c\
@@ -45,6 +46,7 @@ HEADER =	libft.h\
 OBJ =	$(SRC:.c=.o)
 
 OBJ_FT =	ft_atoi.o\
+			ft_atof.o\
 			ft_bzero.o\
 			ft_calloc.o\
 			ft_isalnum.o\

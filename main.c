@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   main.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 23:14:22 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 22:05:08 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "libftprintf.h"
 #include <limits.h>
+#include <float.h>
 
 int main()
 {
@@ -77,7 +78,6 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	printf("\n%d\n", ft_printf("%+.0i", 0));
-	printf("\n%d\n", printf("%+.0i", 0));
-	return (0);
+	printf("\n%d\n", ft_printf("%2.0%"));
+	printf("\n%d\n", printf("%2.0%"));
 }
