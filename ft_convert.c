@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 13:56:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:47:44 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 00:01:23 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,23 +38,6 @@ static char	*ch_conv2(t_printf *wip)
 	}
 	return (res);
 }
-
-/*
-**static char	*ch_conv2()
-**{
-**	char *res;
-**
-**	if (!(res = malloc(sizeof(char) * 6)))
-**		return (NULL);
-**	res[0] = 'e';
-**	res[1] = 'r';
-**	res[2] = 'r';
-**	res[3] = 'o';
-**	res[4] = 'r';
-**	res[5] = '\0';
-**	return (res);
-**}
-*/
 
 char		*ch_conv1(t_printf *wip)
 {

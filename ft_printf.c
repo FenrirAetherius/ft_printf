@@ -6,13 +6,12 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 17:03:07 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 00:02:16 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 static void	ft_init(t_printf *wip, const char *format)
 {

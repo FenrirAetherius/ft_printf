@@ -6,14 +6,12 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 09:14:09 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 15:23:34 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 00:00:07 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
-
-#include <stdio.h>
 
 char	*ft_smin_conv(t_printf *wip)
 {

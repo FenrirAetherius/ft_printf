@@ -6,13 +6,12 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 19:41:02 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 00:02:07 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 static int	len_champ(t_printf *wip, int i)
 {

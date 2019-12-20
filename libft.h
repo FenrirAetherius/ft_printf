@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libft.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 14:38:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:25:12 by fenrir      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 01:39:11 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,7 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 int				ft_atoi(const char *str);
+double			ft_atof(const char *str);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_isalnum(int c);
