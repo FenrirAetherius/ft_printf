@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 02:24:12 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 11:43:49 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,18 +43,18 @@ static int	len_champ(t_printf *wip, int i)
 
 static void	fill_sym(t_printf *wip, int n)
 {
-	if (n < 13)
+	if (n < 14)
 		wip->conv = 1 << n;
-	else if (n < 17)
-		wip->flags = wip->flags | (1 << (n - 13));
-	else if (n == 17)
+	else if (n < 18)
+		wip->flags = wip->flags | (1 << (n - 14));
+	else if (n == 18)
 	{
 		if ((wip->flags & H_MIN) != 0)
 			wip->flags = (wip->flags & ~H_MIN) | HH_MIN;
 		else
 			wip->flags = wip->flags | H_MIN;
 	}
-	else if (n == 18)
+	else if (n == 19)
 	{
 		if ((wip->flags & L_MIN) != 0)
 			wip->flags = (wip->flags & ~L_MIN) | LL_MIN;
@@ -62,7 +62,7 @@ static void	fill_sym(t_printf *wip, int n)
 			wip->flags = wip->flags | L_MIN;
 	}
 	else
-		wip->flags = wip->flags | (1 << (n - 11));
+		wip->flags = wip->flags | (1 << (n - 12));
 }
 
 static int	check(t_printf *wip, int i)

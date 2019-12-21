@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 13:56:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 06:14:40 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 11:42:20 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,8 @@ static char	*ch_conv2(t_printf *wip)
 		res = ft_efgmin_select(wip);
 	else if (wip->conv == 4096)
 		res = ft_nmin_conv(wip);
+	else if (wip->conv == 8192)
+		res = ft_omin_conv(wip);
 	else
 	{
 		if (!(res = malloc(sizeof(char) * 6)))

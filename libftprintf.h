@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 04:46:28 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 18:23:24 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@
 **	flags contains flags in this order : + space # ' l ll h hh - 0 . *
 */
 
-typedef struct	s_printf
+typedef struct		s_printf
 {
 	va_list	ap;
 	short	conv;
@@ -39,45 +39,46 @@ typedef struct	s_printf
 	int		precision;
 	int		size_champ;
 	size_t	size_strdone;
-}				t_printf;
+}					t_printf;
 
-# define	SYMBOL "%Xxuidpscegfn*.0-hl'# +"
+# define SYMBOL		"%Xxuidpscegfno*.0-hl'# +"
 
-# define	INIT_C	0b0000000000000000
+# define INIT_C		0b0000000000000000
 
-# define	PERCENT	0b0000000000000001
-# define	X_MAJ	0b0000000000000010
-# define	X_MIN	0b0000000000000100
-# define	U_MIN	0b0000000000001000
-# define	I_MIN	0b0000000000010000
-# define	D_MIN	0b0000000000100000
-# define	P_MIN	0b0000000001000000
-# define	S_MIN	0b0000000010000000
-# define	C_MIN	0b0000000100000000
-# define	E_MIN	0b0000001000000000
-# define	G_MIN	0b0000010000000000 //todo
-# define	F_MIN	0b0000100000000000
-# define	N_MIN	0b0001000000000000
+# define PERCENT	0b0000000000000001
+# define X_MAJ		0b0000000000000010
+# define X_MIN		0b0000000000000100
+# define U_MIN		0b0000000000001000
+# define I_MIN		0b0000000000010000
+# define D_MIN		0b0000000000100000
+# define P_MIN		0b0000000001000000
+# define S_MIN		0b0000000010000000
+# define C_MIN		0b0000000100000000
+# define E_MIN		0b0000001000000000
+# define G_MIN		0b0000010000000000
+# define F_MIN		0b0000100000000000
+# define N_MIN		0b0001000000000000
+# define O_MIN		0b0010000000000000
 
-# define	INIT_F	0b0000000000000000
+# define INIT_F		0b0000000000000000
 
-# define	STAR	0b0000000000000001
-# define	POINT	0b0000000000000010
-# define	ZERO	0b0000000000000100
-# define	MINUS	0b0000000000001000
-# define	HH_MIN	0b0000000000010000
-# define	H_MIN	0b0000000000100000
-# define	LL_MIN	0b0000000001000000
-# define	L_MIN	0b0000000010000000
-# define	APOST	0b0000000100000000
-# define	HASH	0b0000001000000000
-# define	SPACE	0b0000010000000000
-# define	PLUS	0b0000100000000000
+# define STAR		0b0000000000000001
+# define POINT		0b0000000000000010
+# define ZERO		0b0000000000000100
+# define MINUS		0b0000000000001000
+# define HH_MIN		0b0000000000010000
+# define H_MIN		0b0000000000100000
+# define LL_MIN		0b0000000001000000
+# define L_MIN		0b0000000010000000
+# define APOST		0b0000000100000000
+# define HASH		0b0000001000000000
+# define SPACE		0b0000010000000000
+# define PLUS		0b0000100000000000
 
-
-int		ft_printf (const char *format, ...);
-int		ft_parse(t_printf *wip, int i);
-char	*ch_conv1(t_printf *wip);
-char	*ft_char_conv(wchar_t origin);
+int					ft_printf (const char *format,
+					...) __attribute__((format(printf,1,2)));
+int					ft_parse(t_printf *wip, int i);
+char				*ch_conv1(t_printf *wip);
+char				*ft_char_conv(wchar_t origin);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/21 06:16:55 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/21 11:37:47 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,6 +24,7 @@ SRC =	ft_printf.c\
 		convertion/ft_umin_conv.c\
 		convertion/ft_xmin_conv.c\
 		convertion/ft_xmaj_conv.c\
+		convertion/ft_omin_conv.c\
 		convertion/ft_perc_conv.c\
 		convertion/ft_gmin_conv.c\
 		convertion/ft_fmin_conv.c\
