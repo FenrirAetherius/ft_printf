@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_parse.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 00:02:07 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 02:24:12 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,7 +76,9 @@ static int	check(t_printf *wip, int i)
 	{
 		if (wip->formats[i] == SYMBOL[n])
 		{
-			fill_sym(wip, n);
+			if (((SYMBOL[n] == '0') && (wip->formats[i - 1] != '.')) ||
+				((SYMBOL[n] != '0')))
+				fill_sym(wip, n);
 			return (0);
 		}
 	}

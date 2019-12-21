@@ -195,6 +195,7 @@ int main ()
 	printf("printf(\"%%.0f\n\",\n");
 	printf("%.0f\n", 2.5);
 	printf("%.0f\n", 3.5);
+	printf("%#030.0e\n", 0.1551);
 
 	return 0;
 }

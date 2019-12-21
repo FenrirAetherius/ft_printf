@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_fmin_conv.c                                   .::    .:/ .      .::   */
+/*   ft_emin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/19 23:54:08 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 03:47:05 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/21 03:29:29 by mrozniec     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/21 04:37:20 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
 
-static char	*ft_deci_part(long double ret, int *i)
+static char	*ft_deci_part(long double *ret, int *i, int pre)
 {
-	char	*res;
-	char	*tmp;
-
-	while (ret > 18446744073709551616.0)
+	while ((*ret >= 10) || ((*ret < 1) && *ret != 0))
 	{
-		ret = ret / 10.0;
+		if (*ret >= 10)
+		{
+			*ret = *ret / 10.0;
+			(*i)++;
+		}
+		else
+		{
+			*ret = *ret * 10.0;
+			(*i)--;
+		}
+	}
+	*ret = *ret + ft_arrondi(pre);
+	if (*ret >= 10)
+	{
+		*ret = *ret / 10.0;
 		(*i)++;
 	}
-	if (ret == 18446744073709551616.0)
-		res = ft_strdup("18446744073709551616");
-	else
-		res = ft_llitoa_base((unsigned long long)ret, "0123456789");
-	if (!(tmp = malloc(sizeof(char) * (*i + 1))))
-		return (NULL);
-	tmp = ft_memset(tmp, '0', *i * sizeof(char));
-	res = ft_strjoinmod(res, tmp, 3);
-	return (res);
+	return (ft_itoa((int)(*ret)));
 }
 
-static char	*ft_fmin_preci(long double ret, int pre, char *res)
+static char	*ft_emin_preci(long double ret, int pre, char *res)
 {
 	res = ft_strjoinmod(res, localeconv()->decimal_point, 1);
 	while (pre-- > 0)
@@ -46,7 +49,21 @@ static char	*ft_fmin_preci(long double ret, int pre, char *res)
 	return (res);
 }
 
-static char	*ft_fmin_num(long double ret, t_printf *wip)
+static char	*ft_emin_exp(int i, char *res)
+{
+	if (i < 0)
+	{
+		res = ft_strjoinmod(res, "e-", 1);
+		i = -i;
+	}
+	else
+		res = ft_strjoinmod(res, "e+", 1);
+	if (i < 10)
+		res = ft_strjoinmod(res, "0", 1);
+	return (ft_strjoinmod(res, ft_itoa(i), 3));
+}
+
+static char	*ft_emin_num(long double ret, t_printf *wip)
 {
 	int			pre;
 	int			i;
@@ -59,22 +76,20 @@ static char	*ft_fmin_num(long double ret, t_printf *wip)
 		pre = wip->precision;
 	else
 		pre = 6;
-	ret = ret + ft_arrondi(pre);
-	res = ft_deci_part(ret, &i);
-	if ((wip->flags & APOST) != 0)
-		res = ft_apost(res);
-	ret -= (long double)((long long)ret);
+	res = ft_deci_part(&ret, &i, pre);
+	ret -= (long double)((int)ret);
 	if ((((wip->flags & POINT) != 0) && (wip->precision > 0)) ||
 		((wip->flags & POINT) == 0))
-		res = ft_fmin_preci(ret, pre, res);
+		res = ft_emin_preci(ret, pre, res);
 	else if ((wip->flags & HASH) != 0)
 		res = ft_strjoinmod(res, ".", 1);
+	res = ft_emin_exp(i, res);
 	if (wip->neg == '1')
 		res = ft_strjoinmod("-", res, 2);
 	return (res);
 }
 
-char		*ft_fmin_conv(t_printf *wip)
+char		*ft_emin_conv(t_printf *wip)
 {
 	long double	ret;
 	char		*res;
@@ -82,7 +97,7 @@ char		*ft_fmin_conv(t_printf *wip)
 
 	ret = (long double)va_arg(wip->ap, double);
 	if (!(res = ft_checkvalue((double)ret, wip)))
-		res = ft_fmin_num(ret, wip);
+		res = ft_emin_num(ret, wip);
 	size_res = ft_strlen(res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
 		res = ft_plus(res);
