@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 04:35:51 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 10:30:08 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,6 +78,8 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	printf("\n%d\n", ft_printf("%e", 0.1));
-	printf("\n%d\n", printf("%e", 0.1));
+	//printf("\n%d\n", ft_printf("%.0e", 10.0));
+	printf("\n%d\n", ft_printf("%+15e", -0.000042));
+	printf("\n%d\n", printf("%+15e", -0.000042));
+	//printf("\n%d\n", printf("%020.e", -54789.12));
 }

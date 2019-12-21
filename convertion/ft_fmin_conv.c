@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/19 23:54:08 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 03:47:05 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 10:13:11 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,25 +46,20 @@ static char	*ft_fmin_preci(long double ret, int pre, char *res)
 	return (res);
 }
 
-static char	*ft_fmin_num(long double ret, t_printf *wip)
+static char	*ft_fmin_num(long double ret, t_printf *wip, int pre)
 {
-	int			pre;
 	int			i;
 	char		*res;
 
 	i = 0;
 	if (ft_signbit((double)ret, wip))
 		ret = -ret;
-	if ((wip->flags & POINT) != 0)
-		pre = wip->precision;
-	else
-		pre = 6;
 	ret = ret + ft_arrondi(pre);
 	res = ft_deci_part(ret, &i);
 	if ((wip->flags & APOST) != 0)
 		res = ft_apost(res);
 	ret -= (long double)((long long)ret);
-	if ((((wip->flags & POINT) != 0) && (wip->precision > 0)) ||
+	if ((((wip->flags & POINT) != 0) && pre) ||
 		((wip->flags & POINT) == 0))
 		res = ft_fmin_preci(ret, pre, res);
 	else if ((wip->flags & HASH) != 0)
@@ -74,17 +69,16 @@ static char	*ft_fmin_num(long double ret, t_printf *wip)
 	return (res);
 }
 
-char		*ft_fmin_conv(t_printf *wip)
+char		*ft_fmin_conv(t_printf *wip, long double ret, int pre)
 {
-	long double	ret;
 	char		*res;
 	int			size_res;
 
-	ret = (long double)va_arg(wip->ap, double);
 	if (!(res = ft_checkvalue((double)ret, wip)))
-		res = ft_fmin_num(ret, wip);
+		res = ft_fmin_num(ret, wip, pre);
 	size_res = ft_strlen(res);
-	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
+	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0) &&
+		(wip->conv == F_MIN))
 		res = ft_plus(res);
 	if (size_res >= wip->size_champ)
 		return (res);

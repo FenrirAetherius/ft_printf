@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 03:29:29 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 04:37:20 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 10:13:34 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,22 +63,17 @@ static char	*ft_emin_exp(int i, char *res)
 	return (ft_strjoinmod(res, ft_itoa(i), 3));
 }
 
-static char	*ft_emin_num(long double ret, t_printf *wip)
+static char	*ft_emin_num(long double ret, t_printf *wip, int pre)
 {
-	int			pre;
 	int			i;
 	char		*res;
 
 	i = 0;
 	if (ft_signbit((double)ret, wip))
 		ret = -ret;
-	if ((wip->flags & POINT) != 0)
-		pre = wip->precision;
-	else
-		pre = 6;
 	res = ft_deci_part(&ret, &i, pre);
 	ret -= (long double)((int)ret);
-	if ((((wip->flags & POINT) != 0) && (wip->precision > 0)) ||
+	if ((((wip->flags & POINT) != 0) && (pre > 0)) ||
 		((wip->flags & POINT) == 0))
 		res = ft_emin_preci(ret, pre, res);
 	else if ((wip->flags & HASH) != 0)
@@ -89,17 +84,16 @@ static char	*ft_emin_num(long double ret, t_printf *wip)
 	return (res);
 }
 
-char		*ft_emin_conv(t_printf *wip)
+char		*ft_emin_conv(t_printf *wip, long double ret, int pre)
 {
-	long double	ret;
 	char		*res;
 	int			size_res;
 
-	ret = (long double)va_arg(wip->ap, double);
 	if (!(res = ft_checkvalue((double)ret, wip)))
-		res = ft_emin_num(ret, wip);
+		res = ft_emin_num(ret, wip, pre);
 	size_res = ft_strlen(res);
-	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
+	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0) &&
+		(wip->conv == E_MIN))
 		res = ft_plus(res);
 	if (size_res >= wip->size_champ)
 		return (res);

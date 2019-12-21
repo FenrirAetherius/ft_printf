@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 02:30:42 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 04:10:42 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/21 06:41:51 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,8 +38,10 @@ char		*ft_cmin_conv(t_printf *wip);
 char		*ft_smin_conv(t_printf *wip);
 char		*ft_pmin_conv(t_printf *wip);
 char		*ft_nmin_conv(t_printf *wip);
-char		*ft_fmin_conv(t_printf *wip);
-char		*ft_emin_conv(t_printf *wip);
+char		*ft_efgmin_select(t_printf *wip);
+char		*ft_fmin_conv(t_printf *wip, long double ret, int pre);
+char		*ft_emin_conv(t_printf *wip, long double ret, int pre);
+char		*ft_gmin_conv(t_printf *wip, long double ret, int pre);
 int			ft_signbit(double d, t_printf *wip);
 long double	ft_arrondi(int i);
 char		*ft_checkvalue(double ret, t_printf *wip);
