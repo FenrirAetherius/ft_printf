@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 11:20:00 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 21:43:04 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 10:42:45 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,21 +35,19 @@ char		*ft_omin_conv(t_printf *wip)
 	char	*res;
 	int		size_data;
 
+	wip->flags = wip->flags & ~SPACE;
 	res = ft_select_size(wip);
 	size_data = ft_strlen(res);
+	if ((wip->flags & APOST) != 0)
+		res = ft_apost(res);
 	if ((wip->flags & POINT) != 0)
 		size_data = ft_precision(&res, wip, size_data);
 	if ((wip->flags & POINT) == POINT)
 		wip->flags = wip->flags & ~ZERO;
 	if (((wip->flags & (HASH + POINT)) == HASH) && (res[0] != '0'))
-	{
 		res = ft_hash(res, wip, size_data);
-		if ((wip->flags & ZERO) != 0)
-			size_data = wip->size_champ;
-	}
-	if (((wip->flags & (HASH + POINT)) == HASH) && (res[0] == '0'))
-		wip->flags = wip->flags & ~HASH;
-	if ((wip->flags & (HASH + POINT)) == HASH + POINT)
+	if ((((wip->flags & (HASH + POINT)) == HASH) && (res[0] == '0')) ||
+		((wip->flags & (HASH + POINT)) == HASH + POINT))
 		wip->flags = wip->flags & ~HASH;
 	wip->flags = wip->flags & ~PLUS;
 	size_data = ft_strlen(res);

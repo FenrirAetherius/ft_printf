@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:55:02 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 11:22:52 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 11:56:07 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,8 +42,6 @@ static char	*ft_long_char(t_printf *wip)
 	char	*res;
 	int		i;
 
-	if (!(ft_strnstr(wip->strloc, "UTF-8", ft_strlen(wip->strloc))))
-		return (ft_strdup(""));
 	if (wip->conv == S_MIN)
 	{
 		i = 0;

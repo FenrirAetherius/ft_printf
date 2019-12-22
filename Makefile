@@ -6,7 +6,7 @@
 #    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/21 11:37:47 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/22 11:57:25 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -16,6 +16,7 @@ SRC =	ft_printf.c\
 		ft_parse.c\
 		ft_convert.c\
 		ft_wchar_utf_8.c\
+		ft_localetest.c\
 		convertion/ft_cmin_conv.c\
 		convertion/ft_dmin_conv.c\
 		convertion/ft_nmin_conv.c\

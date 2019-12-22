@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_printf.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 00:02:16 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 16:01:44 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,12 +36,15 @@ int			ft_printf(const char *format, ...)
 			if (wip->formats[i] == '%')
 				i = ft_parse(wip, i);
 		}
-	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 3);
+	if (wip->error == 0)
+		wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 3);
 	wip->size_strdone += ft_strlen(wip->strdone);
 	i = wip->size_strdone;
 	write(1, wip->strdone, wip->size_strdone);
 	va_end(wip->ap);
 	free(wip->strdone);
+	if (wip->error == 1)
+		i = -1;
 	free(wip);
 	return (i);
 }

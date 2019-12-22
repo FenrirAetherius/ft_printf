@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 21:47:17 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 16:50:11 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@
 
 int main()
 {
-	setlocale(LC_CTYPE, "");
+	//setlocale(LC_CTYPE, "");
 	//printf("%s\n", setlocale(LC_CTYPE, NULL));
 	//char *str2;
 	//if(!(str2 = malloc(sizeof(char) * 6)))
@@ -59,11 +59,11 @@ int main()
 	//ft_printf("\n\n%*.*d\n", 10, 5, 9);
 	free(str);
 
-/*
-	ft_printf("%s\n", setlocale(LC_NUMERIC, "en_GB.UTF-8"));
+
+	//ft_printf("%s\n", setlocale(LC_NUMERIC, "en_GB.UTF-8"));
 	struct lconv *ptrLocale = localeconv();
 	ptrLocale->decimal_point = "v";
-	ptrLocale->thousands_sep = " ";
+	ptrLocale->thousands_sep = "m";/*
 	ft_printf("% 'd\n", 32000111);
 	ft_printf("separator:'%s'\n", localeconv()->thousands_sep);
 	ft_printf("%lu\n", ft_strlen(localeconv()->thousands_sep));
@@ -78,17 +78,16 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	//printf("\n%d\n", ft_printf("%.0e", 10.0));
-	printf("\n%d\n", ft_printf("|%02.o| |%-03.o| |%1.o| |%2.o|", 0, 0, 0, 0));
-	printf("\n%d\n", printf("|%02.o| |%-03.o| |%1.o| |%2.o|", 0, 0, 0, 0));
-	//printf("\n%d\n", printf("%020.e", -54789.12));
+	//int		z;
+	wchar_t	y[10];
+	y[0] = 65;
+	y[1] = 0xBF;
+	y[2] = 128519;
+	y[3] = 32;
+	y[4] = 0;
+	//printf("%s\n", setlocale(LC_ALL, "POSIX"));
+	//printf("%s\n", setlocale(LC_CTYPE, NULL));
+	setlocale(LC_ALL, "en_US");
+	printf("\n%d\n", ft_printf("%#10.4x", 42));
+	printf("\n%d\n", printf("%#10.4x", 42));
 }
-
-/*
-**	res				<= "0"
-**	size_data		<= 1
-**	wip->precision	<= 0
-**	wip->size_champ	<= 2
-**	flags			<= ZERO POINT
-**
-*/

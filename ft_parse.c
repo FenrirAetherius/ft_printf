@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 11:43:49 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 12:12:32 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -95,6 +95,7 @@ static void	ft_init(t_printf *wip)
 	wip->precision = 0;
 	wip->size_champ = 0;
 	wip->neg = '0';
+	wip->error = 0;
 }
 
 int			ft_parse(t_printf *wip, int i)
@@ -104,7 +105,6 @@ int			ft_parse(t_printf *wip, int i)
 	temp_form = wip->formats;
 	ft_init(wip);
 	temp_form[i] = '\0';
-	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
 	while (wip->formats[++i] && wip->conv == 0)
 	{
 		if (((wip->formats[i] >= '0' && wip->formats[i] <= '9') ||
@@ -112,15 +112,16 @@ int			ft_parse(t_printf *wip, int i)
 			i = len_champ(wip, i);
 		check(wip, i);
 	}
+	ft_localetest(wip);
+	if (wip->error == 1)
+		return (-1);
+	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
 	wip->formats = ft_strdup(&temp_form[i]);
 	free(temp_form);
 	temp_form = ch_conv1(wip);
 	if ((wip->flags & SPACE) && (wip->neg == '0'))
 		wip->strdone = ft_strjoinmod(wip->strdone, " ", 1);
 	wip->strdone = ft_strjoinmod(wip->strdone, temp_form, 3);
-	if ((ft_strnstr(wip->strloc, "UTF-8", ft_strlen(wip->strloc)) == NULL) &&
-	(wip->conv == S_MIN || wip->conv == C_MIN) && ((wip->flags & L_MIN) != 0))
-		wip->formats = ft_strdup("");
 	free(wip->strloc);
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:18 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 20:23:27 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 10:43:25 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ char	*ft_hash(char *res, t_printf *wip, size_t size_data)
 			return (ft_strjoinmod("0X", ft_zero(res, wip, size_data), 2));
 		if (wip->conv == O_MIN)
 			wip->size_champ += 1;
-		return (ft_strjoinmod("0", ft_zero(res, wip, size_data ), 2));
+		return (ft_strjoinmod("0", ft_zero(res, wip, size_data), 2));
 	}
 	if ((wip->conv == X_MIN) || (wip->conv == P_MIN))
 		return (ft_strjoinmod("0x", res, 2));
