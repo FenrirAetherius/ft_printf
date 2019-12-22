@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 03:29:29 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 10:13:34 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:48:13 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ static char	*ft_deci_part(long double *ret, int *i, int pre)
 			(*i)--;
 		}
 	}
-	*ret = *ret + ft_arrondi(pre);
+	*ret = *ret + ft_flt_bnk_rnd(pre, *ret);
 	if (*ret >= 10)
 	{
 		*ret = *ret / 10.0;
@@ -94,7 +94,7 @@ char		*ft_emin_conv(t_printf *wip, long double ret, int pre)
 	size_res = ft_strlen(res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0) &&
 		(wip->conv == E_MIN))
-		res = ft_plus(res);
+		res = ft_plus(res, wip);
 	if (size_res >= wip->size_champ)
 		return (res);
 	return (ft_size_champ(res, wip, size_res));

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_dmin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 23:59:42 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:46:53 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ char	*ft_dmin_conv(t_printf *wip)
 	if ((wip->flags & POINT) != 0)
 		size_res = ft_precision(&res, wip, size_res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
-		res = ft_plus(res);
+		res = ft_plus(res, wip);
 	if (res[0] == '-')
 		wip->neg = '1';
 	if (size_res >= wip->size_champ)

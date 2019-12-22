@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_pmin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 13:36:21 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 18:27:37 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:32:57 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,9 +19,13 @@ char	*ft_pmin_conv(t_printf *wip)
 	char			*str;
 	int				size_data;
 
+	wip->flags = wip->flags & ~SPACE;
+	wip->flags = wip->flags & ~PLUS;
 	res = (unsigned long)va_arg(wip->ap, void *);
 	str = ft_litoa_base(res, "0123456789abcdef");
 	size_data = ft_strlen(str);
+	if ((wip->flags & POINT) != 0)
+		size_data = ft_precision(&str, wip, size_data);
 	str = ft_hash(str, wip, size_data);
 	wip->size_champ -= 2;
 	wip->flags = wip->flags & ~ZERO;

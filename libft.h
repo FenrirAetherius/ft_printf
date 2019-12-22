@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libft.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 14:38:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 01:39:11 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 23:11:43 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,5 +74,6 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 void			ft_putnbr_fd(int n, int fd);
+char			*ft_strjoinstrdone(char *s1, char *s2, int *nchar, int option);
 
 #endif

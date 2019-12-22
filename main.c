@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 16:50:11 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 21:55:29 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,7 +87,10 @@ int main()
 	y[4] = 0;
 	//printf("%s\n", setlocale(LC_ALL, "POSIX"));
 	//printf("%s\n", setlocale(LC_CTYPE, NULL));
-	setlocale(LC_ALL, "en_US");
-	printf("\n%d\n", ft_printf("%#10.4x", 42));
-	printf("\n%d\n", printf("%#10.4x", 42));
+	printf("\n%d\n", ft_printf("/%20c/    you lose", 0));
+	printf("\n%d\n", printf("/%20c/    you lose", 0));
+	printf("\n");
+	printf("\0");
+	printf("\n");
+	printf("");
 }

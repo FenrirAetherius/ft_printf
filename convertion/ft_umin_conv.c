@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_umin_conv.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 11:12:41 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 14:51:18 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:42:42 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,8 @@ char		*ft_umin_conv(t_printf *wip)
 	char	*res;
 	int		size_res;
 
+	wip->flags = wip->flags & ~SPACE;
+	wip->flags = wip->flags & ~PLUS;
 	if ((wip->flags & L_MIN) != 0)
 		res = ft_lflag(wip);
 	else if ((wip->flags & LL_MIN) != 0)

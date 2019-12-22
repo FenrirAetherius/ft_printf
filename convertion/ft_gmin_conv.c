@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 05:32:23 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 10:25:48 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:47:48 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,7 +85,7 @@ char		*ft_gmin_conv(t_printf *wip, long double ret, int pre)
 	res = ft_gmin_utils(res, wip);
 	size_res = ft_strlen(res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
-		res = ft_plus(res);
+		res = ft_plus(res, wip);
 	if (size_res >= wip->size_champ)
 		return (res);
 	return (ft_size_champ(res, wip, size_res));

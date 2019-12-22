@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 02:30:42 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 18:26:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 19:34:45 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,6 +43,6 @@ char					*ft_fmin_conv(t_printf *wip, long double ret, int pre);
 char					*ft_emin_conv(t_printf *wip, long double ret, int pre);
 char					*ft_gmin_conv(t_printf *wip, long double ret, int pre);
 int						ft_signbit(double d, t_printf *wip);
-long double				ft_arrondi(int i);
+long double				ft_flt_bnk_rnd(int i, long double ret);
 char					*ft_checkvalue(double ret, t_printf *wip);
 #endif

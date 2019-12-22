@@ -6,27 +6,28 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/19 23:54:08 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 10:13:11 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:47:34 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
 
-static char	*ft_deci_part(long double ret, int *i)
+static char	*ft_deci_part(long double *ret, int *i, int pre)
 {
 	char	*res;
 	char	*tmp;
 
-	while (ret > 18446744073709551616.0)
+	while (*ret > 18446744073709551616.0)
 	{
-		ret = ret / 10.0;
+		*ret = *ret / 10.0;
 		(*i)++;
 	}
-	if (ret == 18446744073709551616.0)
+	*ret = *ret + ft_flt_bnk_rnd(pre + *i, *ret);
+	if (*ret == 18446744073709551616.0)
 		res = ft_strdup("18446744073709551616");
 	else
-		res = ft_llitoa_base((unsigned long long)ret, "0123456789");
+		res = ft_llitoa_base((unsigned long long)*ret, "0123456789");
 	if (!(tmp = malloc(sizeof(char) * (*i + 1))))
 		return (NULL);
 	tmp = ft_memset(tmp, '0', *i * sizeof(char));
@@ -54,8 +55,7 @@ static char	*ft_fmin_num(long double ret, t_printf *wip, int pre)
 	i = 0;
 	if (ft_signbit((double)ret, wip))
 		ret = -ret;
-	ret = ret + ft_arrondi(pre);
-	res = ft_deci_part(ret, &i);
+	res = ft_deci_part(&ret, &i, pre);
 	if ((wip->flags & APOST) != 0)
 		res = ft_apost(res);
 	ret -= (long double)((long long)ret);
@@ -79,7 +79,7 @@ char		*ft_fmin_conv(t_printf *wip, long double ret, int pre)
 	size_res = ft_strlen(res);
 	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0) &&
 		(wip->conv == F_MIN))
-		res = ft_plus(res);
+		res = ft_plus(res, wip);
 	if (size_res >= wip->size_champ)
 		return (res);
 	return (ft_size_champ(res, wip, size_res));

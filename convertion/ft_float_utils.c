@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 01:26:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 03:24:28 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 19:50:41 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,15 +23,17 @@ int			ft_signbit(double d, t_printf *wip)
 	return (u.bits.sign);
 }
 
-long double	ft_arrondi(int i)
-{
-	long double res;
-
-	res = 0.5;
-	while (i-- > 0)
-		res = res / 10.0;
-	return (res);
-}
+/*
+**long double	ft_arrondi(int i, double ret)
+**{
+**	long double res;
+**
+**	res = 0.5;
+**	while (i-- > 0)
+**		res = res / 10.0;
+**	return (res);
+**}
+*/
 
 char		*ft_checkvalue(double ret, t_printf *wip)
 {
@@ -54,4 +56,29 @@ char		*ft_checkvalue(double ret, t_printf *wip)
 		wip->flags = wip->flags & ~PLUS;
 	}
 	return (res);
+}
+
+long double	ft_flt_bnk_rnd(int i, long double ret)
+{
+	long long	tmp;
+	long double	rnd_up;
+	int			n;
+
+	tmp = (long long)ret;
+	ret -= tmp;
+	n = i;
+	rnd_up = 0.5;
+	while (i > 0)
+	{
+		while ((i-- > 0) && ret < 1844674407370955161.6)
+			ret = ret * 10;
+		tmp = (long long)ret;
+		ret -= tmp;
+	}
+	if (ret == 0.5)
+		if ((tmp % 2) == 0)
+			return 0;
+	while(n-- > 0)
+		rnd_up = rnd_up / 10.0;
+	return(rnd_up);
 }

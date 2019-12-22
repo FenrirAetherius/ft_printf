@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libflag.h                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 06:35:18 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 19:20:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:45:58 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@ char	*ft_hflag(t_printf *wip);
 char	*ft_hhflag(t_printf *wip);
 char	*ft_lflag(t_printf *wip);
 char	*ft_llflag(t_printf *wip);
-char	*ft_plus(char *res);
+char	*ft_plus(char *res, t_printf *wip);
 int		ft_precision(char **res, t_printf *wip, int size_d);
 char	*ft_size_champ(char *res, t_printf *wip, size_t size_data);
 char	*ft_space(char *res);

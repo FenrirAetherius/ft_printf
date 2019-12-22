@@ -6,7 +6,7 @@
 #    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/22 11:57:25 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/22 23:13:22 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -82,6 +82,7 @@ OBJ_FT =	ft_atoi.o\
 			ft_strdup.o\
 			ft_strjoin.o\
 			ft_strjoinmod.o\
+			ft_strjoinmodnbits.o\
 			ft_strlcat.o\
 			ft_strlcpy.o\
 			ft_strlen.o\

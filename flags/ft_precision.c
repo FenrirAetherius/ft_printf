@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:03:32 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 10:33:59 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/22 20:36:39 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,7 +80,8 @@ int			ft_precision(char **res, t_printf *wip, int size_d)
 	if (wip->precision == 0 && ((wip->conv == S_MIN) || ((ft_atoi(*res) == 0 &&
 	((wip->conv == D_MIN) || (wip->conv == U_MIN) || (wip->conv == I_MIN) ||
 	(wip->conv == O_MIN && ((wip->flags & HASH) == 0)))) ||
-	(((wip->conv == X_MAJ) || (wip->conv == X_MIN)) && *res[0] == '0'))))
+	(((wip->conv == X_MAJ) || (wip->conv == X_MIN) || (wip->conv == P_MIN)) &&
+	*res[0] == '0'))))
 	{
 		free(*res);
 		wip->flags = wip->flags & ~HASH;
@@ -88,7 +89,8 @@ int			ft_precision(char **res, t_printf *wip, int size_d)
 		return (0);
 	}
 	if (((wip->conv == X_MAJ) || (wip->conv == X_MIN) || (wip->conv == D_MIN) ||
-		(wip->conv == U_MIN) || (wip->conv == I_MIN) || (wip->conv == O_MIN)) &&
+		(wip->conv == U_MIN) || (wip->conv == I_MIN) || (wip->conv == O_MIN) ||
+		(wip->conv == P_MIN)) &&
 		(size_d <= wip->precision))
 		return (ft_precnum(res, wip, size_d));
 	if ((wip->conv == S_MIN) && (wip->precision < size_d))
