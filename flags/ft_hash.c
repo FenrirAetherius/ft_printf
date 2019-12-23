@@ -6,13 +6,12 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:18 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 10:43:25 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 17:18:56 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
-#include <stdio.h>
 
 char	*ft_hash(char *res, t_printf *wip, size_t size_data)
 {

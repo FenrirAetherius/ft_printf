@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 01:26:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 13:07:29 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 17:20:43 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,18 +22,6 @@ int			ft_signbit(double d, t_printf *wip)
 		wip->neg = '1';
 	return (u.bits.sign);
 }
-
-/*
-**long double	ft_arrondi(int i, double ret)
-**{
-**	long double res;
-**
-**	res = 0.5;
-**	while (i-- > 0)
-**		res = res / 10.0;
-**	return (res);
-**}
-*/
 
 char		*ft_checkvalue(double ret, t_printf *wip)
 {

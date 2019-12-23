@@ -6,13 +6,12 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 05:32:23 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 20:47:48 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 17:21:19 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
-#include <stdio.h>
 
 static char	*ft_trunc_zero(char *res, int n, int i)
 {
