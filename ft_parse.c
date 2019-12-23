@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 07:03:11 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 11:35:32 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,16 +72,18 @@ static int	check(t_printf *wip, int i)
 	n = -1;
 	if (wip->formats[i] == '*')
 		wip->precision = va_arg(wip->ap, int);
-	while (SYMBOL[++n])
+	while (SYMBOL[++n] != '\0')
 	{
 		if (wip->formats[i] == SYMBOL[n])
 		{
-			if (((SYMBOL[n] == '0') && (wip->formats[i - 1] != '.')) ||
+			if (((SYMBOL[n] == '0') && ((wip->flags & POINT) == 0)) ||
 				((SYMBOL[n] != '0')))
 				fill_sym(wip, n);
 			return (0);
 		}
 	}
+	if (SYMBOL[n] == '\0' && (wip->formats[i] > '9' || wip->formats[i] < '0'))
+		return (-1);
 	if ((wip->formats[i - 1] == '.') && (wip->formats[i] != '*'))
 		wip->precision = ft_atoi(&wip->formats[i]);
 	return (1);
@@ -89,6 +91,8 @@ static int	check(t_printf *wip, int i)
 
 static void	ft_init(t_printf *wip, int *i)
 {
+	int	fail;
+
 	wip->conv = INIT_C;
 	wip->flags = INIT_F;
 	wip->precision = 0;
@@ -96,12 +100,14 @@ static void	ft_init(t_printf *wip, int *i)
 	wip->neg = '0';
 	wip->size_strdone = 0;
 	wip->formats[*i] = '\0';
-	while (wip->formats[++(*i)] && wip->conv == 0)
+	while (wip->formats[++(*i)] && wip->conv == 0 && fail != -1)
 	{
 		if (((wip->formats[*i] >= '0' && wip->formats[*i] <= '9') ||
 			wip->formats[*i] == '*') && ((wip->flags & POINT) == 0))
 			*i = len_champ(wip, *i);
-		check(wip, *i);
+		fail = check(wip, *i);
+		if (fail == -1)
+			(*i)--;
 	}
 }
 

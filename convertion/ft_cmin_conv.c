@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 08:52:17 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 07:25:10 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 10:55:44 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,6 +20,7 @@ char	*ft_cmin_conv(t_printf *wip)
 
 	wip->flags = wip->flags & ~SPACE;
 	wip->flags = wip->flags & ~PLUS;
+	wip->flags = wip->flags & ~POINT;
 	if ((wip->flags & L_MIN) != 0)
 		res = ft_lflag(wip);
 	else

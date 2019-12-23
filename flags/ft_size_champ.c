@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 03:40:11 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 12:22:47 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,24 +29,30 @@ static char	*ft_conv_c(char *res, t_printf *wip, size_t size_data)
 	return (temp);
 }
 
-char	*ft_size_champ(char *res, t_printf *wip, size_t size_data)
+static void	ft_size_modif(t_printf *wip, char *res, size_t *size_data)
 {
-	char	*temp;
-
 	if (((wip->flags & SPACE) || (wip->flags & PLUS)) && (wip->neg == '0'))
-		size_data++;
+		(*size_data)++;
 	if (((wip->flags & HASH) != 0) && ((wip->conv == X_MAJ ||
 		wip->conv == X_MIN) && (res[1] == 'x' || res[1] == 'X')))
 		wip->size_champ -= 2;
 	if (((wip->flags & HASH) != 0) && wip->conv == O_MIN && res[0] == '0')
 		wip->size_champ -= 1;
+}
+
+char		*ft_size_champ(char *res, t_printf *wip, size_t size_data)
+{
+	char	*temp;
+
+	ft_size_modif(wip, res, &size_data);
 	if (((wip->flags & ZERO) != 0) && ((wip->flags & MINUS) == 0) &&
-		((wip->flags & POINT) == 0) && ((wip->flags & PLUS) != 0))
+		(((wip->flags & POINT) == 0) || wip->conv == F_MIN) &&
+		((wip->flags & PLUS) != 0))
 		return (ft_plus(ft_zero(res, wip, size_data), wip));
 	if (((wip->flags & ZERO) != 0) && ((wip->flags & MINUS) == 0) &&
 		(((wip->flags & POINT) == 0) || (wip->conv == F_MIN) ||
-		(wip->conv == E_MIN) || (wip->conv == G_MIN)) &&
-		((wip->flags & PLUS) == 0))
+		(wip->conv == E_MIN) || (wip->conv == G_MIN) || (wip->conv == C_MIN) ||
+		(wip->conv == S_MIN)) && ((wip->flags & PLUS) == 0))
 		return (ft_zero(res, wip, size_data));
 	if ((wip->conv == C_MIN) && (res[0] == 0))
 		return (ft_conv_c(res, wip, size_data));

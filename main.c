@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 06:56:41 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 12:27:02 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,8 +62,8 @@ int main()
 
 	//ft_printf("%s\n", setlocale(LC_NUMERIC, "en_GB.UTF-8"));
 	struct lconv *ptrLocale = localeconv();
-	ptrLocale->decimal_point = "v";
-	ptrLocale->thousands_sep = "m";/*
+	ptrLocale->decimal_point = ",";
+	ptrLocale->thousands_sep = " ";/*
 	ft_printf("% 'd\n", 32000111);
 	ft_printf("separator:'%s'\n", localeconv()->thousands_sep);
 	ft_printf("%lu\n", ft_strlen(localeconv()->thousands_sep));
@@ -78,7 +78,7 @@ int main()
 	t[1] = 0xBF;
 	t[2] = 128519;
 	t[3] = 0;
-	int		z;
+	//int		z;
 	wchar_t	y[10];
 	y[0] = 65;
 	y[1] = 0xBF;
@@ -87,14 +87,14 @@ int main()
 	y[4] = 0;
 	/*printf("%s\n", *///setlocale(LC_ALL, "en_US")/*)*/;
 	/*printf("%s\n", *///setlocale(LC_CTYPE, NULL)/*)*/;
-
+/*
 	int		t1 = -1;
 	int		t2 = -1;
 	int		t1bis = -1;
 	int		t2bis = -1;
-
-	printf("\n\n%d\n", ft_printf("012%c3456%s789%%012%i3456%x789%u012%p456789%e012%f3456789%g0123456789%o01%lc3456%ls789%n012%c3456%s789%%012%i3456%x789%u012%p456789%e012%f3456789%g0123456789%o01%lc3456%ls789%n", 'A', "TEST", 42, 0x42, 42, (void*)42, 4.2, -4.2, 4.101, 042, 35211, y, &z, 'A', "TEST", -21, -0x21, 0, (void*)0x101, 4.2, -4.2, 4.101, 042, 35211, y, &z));
+*/
+	printf("\n\n%d\n", ft_printf("%+015g", 15.92));
 	//printf("size = %d\n", t2);
-	printf("\n\n%d\n", printf("012%c3456%s789%%012%i3456%x789%u012%p456789%e012%f3456789%g0123456789%o01%lc3456%ls789%n012%c3456%s789%%012%i3456%x789%u012%p456789%e012%f3456789%g0123456789%o01%lc3456%ls789%n", 'A', "TEST", 42, 0x42, 42, (void*)42, 4.2, -4.2, 4.101, 042, 35211, y, &z, 'A', "TEST", -21, -0x21, 0, (void*)0x101, 4.2, -4.2, 4.101, 042, 35211, y, &z));
+	printf("\n\n%d\n", printf("%+015g", 15.92));
 	//printf("size = %d\n", t1);
 }

@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 03:29:29 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 20:48:13 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 12:36:39 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -92,10 +92,10 @@ char		*ft_emin_conv(t_printf *wip, long double ret, int pre)
 	if (!(res = ft_checkvalue((double)ret, wip)))
 		res = ft_emin_num(ret, wip, pre);
 	size_res = ft_strlen(res);
-	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0) &&
-		(wip->conv == E_MIN))
+	if (((wip->flags & PLUS) != 0) && (((wip->flags & ZERO) == 0) ||
+		(wip->size_champ <= size_res)) && (wip->conv == E_MIN))
 		res = ft_plus(res, wip);
-	if (size_res >= wip->size_champ)
-		return (res);
-	return (ft_size_champ(res, wip, size_res));
+	if (size_res < wip->size_champ && (wip->conv == E_MIN))
+		return (ft_size_champ(res, wip, size_res));
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 01:26:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 19:50:41 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 11:45:04 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,7 +48,7 @@ char		*ft_checkvalue(double ret, t_printf *wip)
 	(u.bits.sign == 0))
 		res = ft_strdup("inf");
 	else if ((u.bits.exp == 0x7ff) && (u.bits.manh == 0) &&
-	(u.bits.manl == 0) && (u.bits.sign == 1))
+			(u.bits.manl == 0) && (u.bits.sign == 1))
 		res = ft_strdup("-inf");
 	else if (u.bits.exp == 0x7ff)
 	{
