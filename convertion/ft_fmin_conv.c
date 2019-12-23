@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/19 23:54:08 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 12:33:34 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 16:44:35 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ static char	*ft_deci_part(long double *ret, int *i, int pre)
 		res = ft_strdup("18446744073709551616");
 	else
 		res = ft_llitoa_base((unsigned long long)*ret, "0123456789");
-	if (!(tmp = malloc(sizeof(char) * (*i + 1))))
+	if (!(tmp = ft_calloc(sizeof(char), (*i + 1))))
 		return (NULL);
 	tmp = ft_memset(tmp, '0', *i * sizeof(char));
 	res = ft_strjoinmod(res, tmp, 3);

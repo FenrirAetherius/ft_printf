@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 11:35:32 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 13:15:41 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -100,6 +100,7 @@ static void	ft_init(t_printf *wip, int *i)
 	wip->neg = '0';
 	wip->size_strdone = 0;
 	wip->formats[*i] = '\0';
+	fail = 0;
 	while (wip->formats[++(*i)] && wip->conv == 0 && fail != -1)
 	{
 		if (((wip->formats[*i] >= '0' && wip->formats[*i] <= '9') ||

@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/21 01:26:04 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 11:45:04 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 13:07:29 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,8 +77,8 @@ long double	ft_flt_bnk_rnd(int i, long double ret)
 	}
 	if (ret == 0.5)
 		if ((tmp % 2) == 0)
-			return 0;
-	while(n-- > 0)
+			return (0);
+	while (n-- > 0)
 		rnd_up = rnd_up / 10.0;
-	return(rnd_up);
+	return (rnd_up);
 }

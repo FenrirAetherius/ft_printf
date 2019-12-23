@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 07:02:23 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 13:09:39 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,14 +30,14 @@ static t_printf	*ft_init(const char *format, int *i, int *n)
 	return (wip);
 }
 
-static void	ft_free_wip(t_printf *wip)
+static void		ft_free_wip(t_printf *wip)
 {
 	free(wip->formats);
 	free(wip->strdone);
 	free(wip->strloc);
 }
 
-int			ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	int			i;
 	int			n;

@@ -6,21 +6,26 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 08:52:17 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 10:55:44 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 13:09:08 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
 
-char	*ft_cmin_conv(t_printf *wip)
+static void	ft_killflags(t_printf *wip)
+{
+	wip->flags = wip->flags & ~SPACE;
+	wip->flags = wip->flags & ~PLUS;
+	wip->flags = wip->flags & ~POINT;
+}
+
+char		*ft_cmin_conv(t_printf *wip)
 {
 	char	*res;
 	int		size_data;
 
-	wip->flags = wip->flags & ~SPACE;
-	wip->flags = wip->flags & ~PLUS;
-	wip->flags = wip->flags & ~POINT;
+	ft_killflags(wip);
 	if ((wip->flags & L_MIN) != 0)
 		res = ft_lflag(wip);
 	else
