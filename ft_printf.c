@@ -6,43 +6,54 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 16:01:44 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 07:02:23 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
-static void	ft_init(t_printf *wip, const char *format)
+static t_printf	*ft_init(const char *format, int *i, int *n)
 {
+	t_printf	*wip;
+
+	if (!(wip = malloc(sizeof(t_printf))))
+		return (0);
 	wip->formats = ft_strdup(format);
 	wip->strdone = ft_strdup("");
 	wip->size_strdone = 0;
+	wip->strloc = ft_strdup(setlocale(LC_CTYPE, NULL));
+	wip->error = 0;
+	*i = -1;
+	*n = 0;
+	return (wip);
+}
+
+static void	ft_free_wip(t_printf *wip)
+{
+	free(wip->formats);
+	free(wip->strdone);
+	free(wip->strloc);
 }
 
 int			ft_printf(const char *format, ...)
 {
 	int			i;
+	int			n;
 	t_printf	*wip;
 
-	if (!(wip = malloc(sizeof(t_printf))))
-		return (0);
-	ft_init(wip, format);
+	wip = ft_init(format, &i, &n);
 	va_start(wip->ap, format);
-	i = -1;
-	if (wip->formats)
-		while (wip->formats[++i] != '\0')
-		{
-			if (wip->formats[i] == '%')
-				i = ft_parse(wip, i);
-		}
-	if (wip->error == 0)
-		wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 3);
-	wip->size_strdone += ft_strlen(wip->strdone);
-	i = wip->size_strdone;
-	write(1, wip->strdone, wip->size_strdone);
+	while (wip->formats[++i] != '\0')
+		if (wip->formats[i] == '%')
+			n = ft_parse(wip, &i, n);
+	wip->size_strdone = i - n;
+	wip->strdone = ft_join_ns(wip->strdone, &(wip->formats[n]),
+	&(wip->size_strdone), -1);
+	i = write(1, wip->strdone, wip->size_strdone);
 	va_end(wip->ap);
-	free(wip->strdone);
+	ft_free_wip(wip);
 	if (wip->error == 1)
 		i = -1;
 	free(wip);

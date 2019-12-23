@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 11:56:50 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 06:49:47 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,17 +29,17 @@
 
 typedef struct		s_printf
 {
-	va_list	ap;
-	short	conv;
-	short	flags;
-	char	*formats;
-	char	*strdone;
-	char	*strloc;
-	char	neg;
-	int		precision;
-	int		size_champ;
-	char	error;
-	size_t	size_strdone;
+	va_list		ap;
+	short		conv;
+	short		flags;
+	char		*formats;
+	char		*strdone;
+	char		*strloc;
+	char		neg;
+	int			precision;
+	int			size_champ;
+	char		error;
+	long long	size_strdone;
 }					t_printf;
 
 # define SYMBOL		"%Xxuidpscegfno*.0-hl'# +"
@@ -78,9 +78,9 @@ typedef struct		s_printf
 
 int					ft_printf (const char *format,
 					...) __attribute__((format(printf,1,2)));
-int					ft_parse(t_printf *wip, int i);
+int					ft_parse(t_printf *wip, int *i, int n);
 char				*ch_conv1(t_printf *wip);
 char				*ft_char_conv(wchar_t origin);
-void				ft_localetest(t_printf *wip);
+void				ft_localetest(t_printf *wip, int *i, int n);
 
 #endif

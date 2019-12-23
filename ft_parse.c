@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 09:15:42 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 12:12:32 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 07:03:11 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,41 +87,43 @@ static int	check(t_printf *wip, int i)
 	return (1);
 }
 
-static void	ft_init(t_printf *wip)
+static void	ft_init(t_printf *wip, int *i)
 {
 	wip->conv = INIT_C;
 	wip->flags = INIT_F;
-	wip->strloc = ft_strdup(setlocale(LC_CTYPE, NULL));
 	wip->precision = 0;
 	wip->size_champ = 0;
 	wip->neg = '0';
-	wip->error = 0;
+	wip->size_strdone = 0;
+	wip->formats[*i] = '\0';
+	while (wip->formats[++(*i)] && wip->conv == 0)
+	{
+		if (((wip->formats[*i] >= '0' && wip->formats[*i] <= '9') ||
+			wip->formats[*i] == '*') && ((wip->flags & POINT) == 0))
+			*i = len_champ(wip, *i);
+		check(wip, *i);
+	}
 }
 
-int			ft_parse(t_printf *wip, int i)
+int			ft_parse(t_printf *wip, int *i, int n)
 {
-	char *temp_form;
+	char		*temp_form;
+	long long	len;
 
-	temp_form = wip->formats;
-	ft_init(wip);
-	temp_form[i] = '\0';
-	while (wip->formats[++i] && wip->conv == 0)
-	{
-		if (((wip->formats[i] >= '0' && wip->formats[i] <= '9') ||
-			wip->formats[i] == '*') && ((wip->flags & POINT) == 0))
-			i = len_champ(wip, i);
-		check(wip, i);
-	}
-	ft_localetest(wip);
+	ft_init(wip, i);
+	ft_localetest(wip, i, n);
 	if (wip->error == 1)
-		return (-1);
-	wip->strdone = ft_strjoinmod(wip->strdone, wip->formats, 1);
-	wip->formats = ft_strdup(&temp_form[i]);
-	free(temp_form);
+		return (n);
+	len = ft_strlen(&wip->formats[n]);
+	wip->strdone = ft_join_ns(wip->strdone, &wip->formats[n], &len, 1);
 	temp_form = ch_conv1(wip);
+	len = 1;
 	if ((wip->flags & SPACE) && (wip->neg == '0'))
-		wip->strdone = ft_strjoinmod(wip->strdone, " ", 1);
-	wip->strdone = ft_strjoinmod(wip->strdone, temp_form, 3);
-	free(wip->strloc);
-	return (-1);
+		wip->strdone = ft_join_ns(wip->strdone, " ", &len, 1);
+	if (wip->conv == C_MIN && temp_form[0] == 0)
+		wip->size_strdone += wip->size_champ;
+	wip->size_strdone += ft_strlen(temp_form);
+	wip->strdone = ft_join_ns(wip->strdone, temp_form, &wip->size_strdone, 3);
+	*i = *i - 1;
+	return (*i + 1);
 }

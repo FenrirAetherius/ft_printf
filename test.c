@@ -198,7 +198,7 @@ int main ()
 	printf("%#.7g\n", 15.51000551);
 	printf("%#.6e\n", 15.51000551);
 	printf("\n%d\n", printf("%#.16o", 16));
-	printf("\n\n\n1%%2= %d\n", (2 % 2));
+	printf("\n\n\n1%%2= %-10d\n", (2 % 2));
 
 	return 0;
 }

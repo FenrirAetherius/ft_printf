@@ -6,12 +6,28 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 20:48:13 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 03:40:11 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libflag.h"
+
+static char	*ft_conv_c(char *res, t_printf *wip, size_t size_data)
+{
+	char	*temp;
+	char	*tmp;
+
+	free(res);
+	if (!(temp = ft_calloc(sizeof(char), (wip->size_champ - size_data + 2))))
+		return (NULL);
+	tmp = &temp[1];
+	if ((wip->flags & MINUS) == 0)
+		tmp = ft_memset(temp, ' ', wip->size_champ - size_data);
+	else
+		temp = ft_memset(temp, ' ', wip->size_champ - size_data);
+	return (temp);
+}
 
 char	*ft_size_champ(char *res, t_printf *wip, size_t size_data)
 {
@@ -32,6 +48,8 @@ char	*ft_size_champ(char *res, t_printf *wip, size_t size_data)
 		(wip->conv == E_MIN) || (wip->conv == G_MIN)) &&
 		((wip->flags & PLUS) == 0))
 		return (ft_zero(res, wip, size_data));
+	if ((wip->conv == C_MIN) && (res[0] == 0))
+		return (ft_conv_c(res, wip, size_data));
 	if (!(temp = ft_calloc(sizeof(char), (wip->size_champ - size_data + 1))))
 		return (NULL);
 	temp = ft_memset(temp, ' ', wip->size_champ - size_data);

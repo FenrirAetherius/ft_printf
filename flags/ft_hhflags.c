@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 21:50:29 by fenrir       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/21 11:24:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/23 05:17:19 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,13 +36,23 @@ static char	*ft_short_num(t_printf *wip)
 	return (ft_itoa((int)temp));
 }
 
-static void	ft_char_nconv(t_printf *wip)
+static char	*ft_char_nconv(t_printf *wip)
 {
-	char	*temp;
+	long long	*res;
+	char		*arg;
 
-	temp = va_arg(wip->ap, char *);
-	if (temp != NULL)
-		*temp = (char)ft_strlen(wip->strdone);
+	arg = va_arg(wip->ap, char *);
+	if (arg != NULL)
+	{
+		if (!(res = malloc(sizeof(long long))))
+			return (NULL);
+		*res = 0;
+		if (res != NULL)
+			wip->strdone = ft_join_ns(wip->strdone, "", res, 1);
+		*arg = (char)*res;
+		free(res);
+	}
+	return ("OK");
 }
 
 char		*ft_hhflag(t_printf *wip)
