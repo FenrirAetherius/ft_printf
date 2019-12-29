@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/02 15:04:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 12:22:47 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 11:26:10 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,8 +22,11 @@ static char	*ft_conv_c(char *res, t_printf *wip, size_t size_data)
 	if (!(temp = ft_calloc(sizeof(char), (wip->size_champ - size_data + 2))))
 		return (NULL);
 	tmp = &temp[1];
-	if ((wip->flags & MINUS) == 0)
-		tmp = ft_memset(temp, ' ', wip->size_champ - size_data);
+	if ((wip->flags & MINUS) != 0)
+	{
+		tmp = ft_memset(tmp, ' ', wip->size_champ - size_data);
+		wip->size_champ--;
+	}
 	else
 		temp = ft_memset(temp, ' ', wip->size_champ - size_data);
 	return (temp);
