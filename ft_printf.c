@@ -6,23 +6,39 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 10:08:12 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 17:18:28 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 14:48:44 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+/*
+**	i check the len of nl_langinfo(CODESET), because if its a void string,
+**	it means that it take the global system encodage for char
+**	(UTF-8 US-ASCII or other)
+*/
+
 static t_printf	*ft_init(const char *format, int *i, int *n)
 {
 	t_printf	*wip;
+	char		*str;
 
 	if (!(wip = malloc(sizeof(t_printf))))
 		return (0);
 	wip->formats = ft_strdup(format);
 	wip->strdone = ft_strdup("");
 	wip->size_strdone = 0;
-	wip->strloc = ft_strdup(setlocale(LC_CTYPE, NULL));
+	str = ft_strdup(setlocale(LC_ALL, NULL));
+	if (ft_strlen(nl_langinfo(CODESET)) == 0)
+	{
+		setlocale(LC_ALL, "");
+		wip->strloc = ft_strdup(nl_langinfo(CODESET));
+		setlocale(LC_ALL, str);
+	}
+	else
+		wip->strloc = ft_strdup(nl_langinfo(CODESET));
+	free(str);
 	wip->error = 0;
 	*i = -1;
 	*n = 0;

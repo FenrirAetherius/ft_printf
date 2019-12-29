@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/23 06:49:47 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 15:35:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <locale.h>
+# include <langinfo.h>
 # include <wchar.h>
 # include "libft.h"
 

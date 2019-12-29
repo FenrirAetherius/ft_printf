@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 17:09:31 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/29 11:18:23 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/29 14:29:15 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,12 +15,14 @@
 #include "libftprintf.h"
 #include <limits.h>
 #include <float.h>
+#include <langinfo.h>
+#include <locale.h>
 
 int main()
 {
 	//setlocale(LC_CTYPE, "");
 	//printf("%s\n", setlocale(LC_CTYPE, NULL));
-	//char *str2;
+	char *str2;
 	//if(!(str2 = malloc(sizeof(char) * 6)))
 		//return(-1);
 	/*\u1d00*//*
@@ -85,8 +87,17 @@ int main()
 	y[2] = 128519;
 	y[3] = 32;
 	y[4] = 0;
-	/*printf("%s\n", */setlocale(LC_ALL, "en_US")/*)*/;
-	/*printf("%s\n", *///setlocale(LC_CTYPE, NULL)/*)*/;
+	setlocale(LC_ALL, "c");
+	str2 = setlocale(LC_ALL, NULL);
+	if (ft_strlen(nl_langinfo(CODESET)) == 0)
+	{
+		setlocale(LC_ALL, "");
+		printf("%s\n", nl_langinfo(CODESET));
+		setlocale(LC_ALL, str2);
+	}
+	else
+		printf("%s\n", nl_langinfo(CODESET));
+	/*printf("%s\n", *///setlocale(LC_ALL, NULL)/*)*/;
 /*
 	int		t1 = -1;
 	int		t2 = -1;
@@ -94,8 +105,8 @@ int main()
 	int		t2bis = -1;
 */
 
-	ft_printf("\nf/%-10c/\n", 0);
-	printf("\nv/%-10c/\n", 0);
+	//ft_printf("\nf/%-10c/\n", 0);
+	//printf("\nv/%-10c/\n", 0);
 	//ft_printf("\n/%10c/\n", 0);
 	//printf("\n/%10c/\n", 0);
 	//printf("size = %d\n", t2);
