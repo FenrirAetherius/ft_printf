@@ -3,14 +3,20 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#    By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/22 23:13:22 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/01 20:19:27 by fenrir      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 NAME = libftprintf.a
+
+ifeq ($(shell uname), Linux)
+TARGET = linux/libft.a
+else
+TARGET = mac/libft.a
+endif
 
 SRC =	ft_printf.c\
 		ft_parse.c\
@@ -51,7 +57,51 @@ HEADER =	libft.h\
 
 OBJ =	$(SRC:.c=.o)
 
-OBJ_FT =	ft_atoi.o\
+OBJ_FT =	temp_file/ft_atoi.o\
+			temp_file/ft_atof.o\
+			temp_file/ft_bzero.o\
+			temp_file/ft_calloc.o\
+			temp_file/ft_isalnum.o\
+			temp_file/ft_isalpha.o\
+			temp_file/ft_isascii.o\
+			temp_file/ft_isdigit.o\
+			temp_file/ft_isprint.o\
+			temp_file/ft_itoa.o\
+			temp_file/ft_llitoa.o\
+			temp_file/ft_itoa_base.o\
+			temp_file/ft_hitoa_base.o\
+			temp_file/ft_hhitoa_base.o\
+			temp_file/ft_litoa_base.o\
+			temp_file/ft_llitoa_base.o\
+			temp_file/ft_memccpy.o\
+			temp_file/ft_memchr.o\
+			temp_file/ft_memcmp.o\
+			temp_file/ft_memcpy.o\
+			temp_file/ft_memmove.o\
+			temp_file/ft_memset.o\
+			temp_file/ft_putchar_fd.o\
+			temp_file/ft_putendl_fd.o\
+			temp_file/ft_putnbr_fd.o\
+			temp_file/ft_putstr_fd.o\
+			temp_file/ft_split.o\
+			temp_file/ft_strchr.o\
+			temp_file/ft_strdup.o\
+			temp_file/ft_strjoin.o\
+			temp_file/ft_strjoinmod.o\
+			temp_file/ft_strjoinmodnbits.o\
+			temp_file/ft_strlcat.o\
+			temp_file/ft_strlcpy.o\
+			temp_file/ft_strlen.o\
+			temp_file/ft_strmapi.o\
+			temp_file/ft_strncmp.o\
+			temp_file/ft_strnstr.o\
+			temp_file/ft_strrchr.o\
+			temp_file/ft_strtrim.o\
+			temp_file/ft_substr.o\
+			temp_file/ft_tolower.o\
+			temp_file/ft_toupper.o
+
+OBJ_FTMP =	ft_atoi.o\
 			ft_atof.o\
 			ft_bzero.o\
 			ft_calloc.o\
@@ -98,7 +148,8 @@ OBJ_FT =	ft_atoi.o\
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@ar x libft.a
+	ar x $(TARGET)
+	@mv $(OBJ_FTMP) temp_file/
 	@ar rc $(NAME) $(OBJ) $(OBJ_FT)
 
 %.o: %.c
