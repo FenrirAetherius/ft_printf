@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+      #
+#    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/01 20:19:27 by fenrir      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/05 14:38:12 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -148,7 +148,7 @@ OBJ_FTMP =	ft_atoi.o\
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	ar x $(TARGET)
+	@ar x $(TARGET)
 	@mv $(OBJ_FTMP) temp_file/
 	@ar rc $(NAME) $(OBJ) $(OBJ_FT)
 
