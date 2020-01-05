@@ -6,7 +6,7 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 10:48:29 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 21:13:34 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/05 20:14:58 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,11 +39,11 @@ char		*ft_xmaj_conv(t_printf *wip)
 	wip->flags = wip->flags & ~PLUS;
 	res = ft_select_size(wip);
 	size_data = ft_strlen(res);
+	if (res[0] == '0')
+		wip->flags = wip->flags & ~HASH;
 	if ((wip->flags & POINT) != 0)
 		size_data = ft_precision(&res, wip, size_data);
-	if ((((wip->flags & (HASH + POINT)) == HASH) && (res[0] != '0')) ||
-		(((wip->flags & (HASH + POINT)) == HASH + POINT) &&
-		wip->precision < wip->size_champ))
+	if ((wip->flags & HASH) == HASH)
 		res = ft_hash(res, wip, size_data);
 	if ((((wip->flags & (HASH + POINT)) == HASH) && (res[1] == 'X')) ||
 		((wip->flags & (HASH + POINT)) == HASH + POINT))

@@ -6,17 +6,16 @@
 /*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/28 15:42:54 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/22 20:46:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/05 19:17:59 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libconv.h"
 
-char	*ft_dmin_conv(t_printf *wip)
+static char	*ft_intselect(t_printf *wip)
 {
 	char	*res;
-	int		size_res;
 
 	if ((wip->flags & L_MIN) != 0)
 		res = ft_lflag(wip);
@@ -28,12 +27,22 @@ char	*ft_dmin_conv(t_printf *wip)
 		res = ft_hhflag(wip);
 	else
 		res = ft_itoa(va_arg(wip->ap, int));
+	return (res);
+}
+
+char		*ft_dmin_conv(t_printf *wip)
+{
+	char	*res;
+	int		size_res;
+
+	res = ft_intselect(wip);
 	size_res = ft_strlen(res);
 	if ((wip->flags & APOST) != 0)
 		res = ft_apost(res);
 	if ((wip->flags & POINT) != 0)
 		size_res = ft_precision(&res, wip, size_res);
-	if (((wip->flags & PLUS) != 0) && ((wip->flags & ZERO) == 0))
+	if (((wip->flags & PLUS) != 0) && (((wip->flags & ZERO) == 0) ||
+	((wip->flags & POINT) != 0) || (wip->size_champ <= size_res)))
 		res = ft_plus(res, wip);
 	if (res[0] == '-')
 		wip->neg = '1';
