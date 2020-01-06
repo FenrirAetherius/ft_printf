@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#    By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/05 14:38:12 by mrozniec    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 01:23:28 by fenrir      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -149,6 +149,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@ar x $(TARGET)
+	@mkdir temp_file
 	@mv $(OBJ_FTMP) temp_file/
 	@ar rc $(NAME) $(OBJ) $(OBJ_FT)
 
@@ -158,7 +159,7 @@ $(NAME): $(OBJ) $(HEADER)
 .PHONY: clean fclean re all
 
 clean:
-	@/bin/rm -f $(OBJ) $(OBJ_FT)
+	@/bin/rm -rf $(OBJ) $(OBJ_FT) temp_file
 
 fclean: clean
 	@/bin/rm -rf $(NAME) __.SYMDEF\ SORTED
