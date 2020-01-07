@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libftprintf.h                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mrozniec <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/17 15:14:25 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/29 15:35:15 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 09:38:17 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,7 +81,7 @@ int					ft_printf (const char *format,
 					...) __attribute__((format(printf,1,2)));
 int					ft_parse(t_printf *wip, int *i, int n);
 char				*ch_conv1(t_printf *wip);
-char				*ft_char_conv(wchar_t origin);
-void				ft_localetest(t_printf *wip, int *i, int n);
+char				*ft_char_conv(wchar_t origin, t_printf *wip);
+char				*ft_localetest(t_printf *wip, int *i, int n);
 
 #endif

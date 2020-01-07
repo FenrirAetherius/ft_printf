@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 12:09:15 by mrozniec     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:47:53 by mrozniec    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 09:36:18 by mrozniec    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "libftprintf.h"
 
 static char	*one_char(wchar_t origin)
 {
@@ -66,9 +67,17 @@ static char	*four_char(wchar_t origin)
 	return (new);
 }
 
-char		*ft_char_conv(wchar_t origin)
+char		*ft_char_conv(wchar_t origin, t_printf *wip)
 {
-	if (origin <= 0x007F)
+	if (wip->error == 1)
+	{
+		if (origin <= 0x0FF)
+			return (one_char(origin));
+		else
+			wip->error = 2;
+		return (ft_strdup(""));
+	}
+	else if (origin <= 0x007F)
 		return (one_char(origin));
 	else if (origin < 0x0800)
 		return (two_char(origin));

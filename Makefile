@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: fenrir <fenrir@student.le-101.fr>          +:+   +:    +:    +:+      #
+#    By: mrozniec <mrozniec@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/14 12:45:05 by mrozniec     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 01:23:28 by fenrir      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/07 13:02:55 by mrozniec    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -57,7 +57,7 @@ HEADER =	libft.h\
 
 OBJ =	$(SRC:.c=.o)
 
-OBJ_FT =	temp_file/ft_atoi.o\
+OBJ_PRINT =	temp_file/ft_atoi.o\
 			temp_file/ft_atof.o\
 			temp_file/ft_bzero.o\
 			temp_file/ft_calloc.o\
@@ -99,7 +99,38 @@ OBJ_FT =	temp_file/ft_atoi.o\
 			temp_file/ft_strtrim.o\
 			temp_file/ft_substr.o\
 			temp_file/ft_tolower.o\
-			temp_file/ft_toupper.o
+			temp_file/ft_toupper.o\
+			temp_file/ft_printf.o\
+			temp_file/ft_parse.o\
+			temp_file/ft_convert.o\
+			temp_file/ft_wchar_utf_8.o\
+			temp_file/ft_localetest.o\
+			temp_file/ft_cmin_conv.o\
+			temp_file/ft_dmin_conv.o\
+			temp_file/ft_nmin_conv.o\
+			temp_file/ft_pmin_conv.o\
+			temp_file/ft_smin_conv.o\
+			temp_file/ft_umin_conv.o\
+			temp_file/ft_xmin_conv.o\
+			temp_file/ft_xmaj_conv.o\
+			temp_file/ft_omin_conv.o\
+			temp_file/ft_perc_conv.o\
+			temp_file/ft_gmin_conv.o\
+			temp_file/ft_fmin_conv.o\
+			temp_file/ft_emin_conv.o\
+			temp_file/ft_efgmin_select.o\
+			temp_file/ft_float_utils.o\
+			temp_file/ft_apost.o\
+			temp_file/ft_hash.o\
+			temp_file/ft_hflags.o\
+			temp_file/ft_hhflags.o\
+			temp_file/ft_lflags.o\
+			temp_file/ft_llflags.o\
+			temp_file/ft_plus.o\
+			temp_file/ft_precision.o\
+			temp_file/ft_size_champ.o\
+			temp_file/ft_space.o\
+			temp_file/ft_zero.o
 
 OBJ_FTMP =	ft_atoi.o\
 			ft_atof.o\
@@ -151,7 +182,8 @@ $(NAME): $(OBJ) $(HEADER)
 	@ar x $(TARGET)
 	@mkdir temp_file
 	@mv $(OBJ_FTMP) temp_file/
-	@ar rc $(NAME) $(OBJ) $(OBJ_FT)
+	@mv $(OBJ) temp_file/
+	@ar rc $(NAME) $(OBJ_PRINT)
 
 %.o: %.c
 	@cc -o $@ -c $< -Wall -Wextra -Werror
@@ -159,7 +191,7 @@ $(NAME): $(OBJ) $(HEADER)
 .PHONY: clean fclean re all
 
 clean:
-	@/bin/rm -rf $(OBJ) $(OBJ_FT) temp_file
+	@/bin/rm -rf $(OBJ_PRINT) temp_file
 
 fclean: clean
 	@/bin/rm -rf $(NAME) __.SYMDEF\ SORTED
