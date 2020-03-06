@@ -130,7 +130,17 @@ OBJ_PRINT =	temp_file/ft_atoi.o\
 			temp_file/ft_precision.o\
 			temp_file/ft_size_champ.o\
 			temp_file/ft_space.o\
-			temp_file/ft_zero.o
+			temp_file/ft_zero.o\
+			temp_file/ft_lstadd_back_bonus.o\
+			temp_file/ft_lstadd_front_bonus.o\
+			temp_file/ft_lstclear_bonus.o\
+			temp_file/ft_lstdelone_bonus.o\
+			temp_file/ft_lstiter_bonus.o\
+			temp_file/ft_lstlast_bonus.o\
+			temp_file/ft_lstmap_bonus.o\
+			temp_file/ft_lstnew_bonus.o\
+			temp_file/ft_lstsize_bonus.o\
+			temp_file/get_next_line.o
 
 OBJ_FTMP =	ft_atoi.o\
 			ft_atof.o\
@@ -174,7 +184,17 @@ OBJ_FTMP =	ft_atoi.o\
 			ft_strtrim.o\
 			ft_substr.o\
 			ft_tolower.o\
-			ft_toupper.o
+			ft_toupper.o\
+			ft_lstadd_back_bonus.o\
+			ft_lstadd_front_bonus.o\
+			ft_lstclear_bonus.o\
+			ft_lstdelone_bonus.o\
+			ft_lstiter_bonus.o\
+			ft_lstlast_bonus.o\
+			ft_lstmap_bonus.o\
+			ft_lstnew_bonus.o\
+			ft_lstsize_bonus.o\
+			get_next_line.o
 
 all: $(NAME)
 
